@@ -1,3 +1,6 @@
+// SOME MARKDOWN AND README
+//TO FIND ANY EXCERCISE JUST USE CTRL + F AND LOOK FOR THE NUMBER OF THE PROBLEM 
+
 
 // 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
 // function bin2dec(num='100',base='2') {
