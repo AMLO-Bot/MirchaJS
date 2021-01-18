@@ -71,3 +71,48 @@
 
 // getYears(new Date(2020,11,17));
 // Esta bien loco ocupar el operador ternario para hacer bloques de if else porque el interprete lo lee como una sola línea de código
+
+// 18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+
+// const charCounter = str => {
+//     if (str === undefined) return console.warn ('No metiste una cadena');
+//     if(typeof str !== 'string') return console.error('Ingresa una cadena de texto');
+//     if( str == '') return console.error('Ingresaste una cadena vacía');
+
+//     const vowelPattern = new RegExp("[aiueo]",'gi');
+//     const consoPattern = new RegExp('[bcdfghjklmnpqrstvwxy]','gi');
+//     vowelCounter = str.match(vowelPattern).length;
+//     consoCounter = str.match(consoPattern).length;
+
+//     return `La cadena ${str} tiene ${vowelCounter} vocales y ${consoCounter} consonantes`
+// };
+// console.log(charCounter('Hola Mundo'));
+// console.log(charCounter(''));
+
+
+// 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+
+
+// const isValidName = name => {
+//     if (name === undefined) return console.warn ('No metiste un nombre');
+//     if(typeof name !== 'string') return console.error('Ingresa una cadena de texto');
+
+//     const namePatter = /[A-Z]{1}\w{1,} {1}[A-Z]{1}\w{1,}/;
+//     return namePatter.test(name)
+// };
+
+// console.log (isValidName("Jonathan MirCha"));
+// console.log (isValidName());
+// console.log (isValidName("Avalos Albino"));
+// console.log (isValidName("Julieta Venegas"));
+
+
+// 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+
+// const isValidMail = mail => {
+//     const mailPatter = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+//     return mailPatter.test(mail);
+// }; 
+// console.log(isValidMail('a2500@alumno.ipn.mx'));
+// console.log(isValidMail('aldair.avalos@gamil.com'));
+// console.log(isValidMail('ulises-man@gmail.com'));
