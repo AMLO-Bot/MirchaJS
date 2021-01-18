@@ -1,5 +1,6 @@
 // SOME MARKDOWN AND README
 //TO FIND ANY EXCERCISE JUST USE CTRL + F AND LOOK FOR THE NUMBER OF THE PROBLEM 
+// To UNCOMMET the block of code you need try selecting the whole block and then press CTRL + }
 
 
 // 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
@@ -100,13 +101,13 @@
 //     if (name === undefined) return console.warn ('No metiste un nombre');
 //     if(typeof name !== 'string') return console.error('Ingresa una cadena de texto');
 
-//     const namePatter = /[A-Z]{1}\w{1,} {1}[A-Z]{1}\w{1,}/;
+//     const namePatter = /[A-Z,Ñ]\w{1,} ?([A-Z]\w{1,})?/;
 //     return namePatter.test(name)
 // };
 
 // console.log (isValidName("Jonathan MirCha"));
-// console.log (isValidName());
-// console.log (isValidName("Avalos Albino"));
+// console.log (isValidName(ÑoÑo));
+// console.log (isValidName("Avalos"));
 // console.log (isValidName("Julieta Venegas"));
 
 
@@ -119,3 +120,13 @@
 // console.log(isValidMail('a2500@alumno.ipn.mx'));
 // console.log(isValidMail('aldair.avalos@gamil.com'));
 // console.log(isValidMail('ulises-man@gmail.com'));
+
+
+// 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+
+// const sqNumArray = array => {
+
+// };
+
+// 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+// 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
