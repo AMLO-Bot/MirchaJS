@@ -261,12 +261,12 @@
 //   😊- Valida que el título no rebase los 100 caracteres.
 //   😊- Valida que el director no rebase los 50 caracteres. ^\w{1,50}$
 //   😊- Valida que el año de estreno sea un número entero de 4 dígitos.
-//   - Valida que el país o paises sea introducidos en forma de arreglo.
-//   - Valida que los géneros sean introducidos en forma de arreglo.
-//   - Valida que los géneros introducidos esten dentro de los géneros 
+//   😊- Valida que el país o paises sea introducidos en forma de arreglo.
+//   😊- Valida que los géneros sean introducidos en forma de arreglo.
+//   😊🤔- Valida que los géneros introducidos esten dentro de los géneros 
 //      aceptados*.
-//   - Crea un método estático que devuelva los géneros aceptados*.
-//   - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+//   😊- Crea un método estático que devuelva los géneros aceptados*.
+//   😊- Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
 //     decimal de una posición.
 //   - Crea un método que devuelva toda la ficha técnica de la película.
 //   - Apartir de un arreglo con la información de 3 películas genera 3 
@@ -276,28 +276,57 @@
 // Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 
 class Film{
-    constructor(id, title, director, year,country,genre,rate){
+    constructor(id, title, director, year,country,genres,rate,acceptedGenres = []){
         this.id = id;
         this.title = title;
         this.director = director;
         this.year = year;
         this.country = country;
-        this.genre = genre;
+        this.genres = genres;
         this.rate = rate;
+        //this.acceptedGenres = ['Action', 'Adult', 'Adventure', 'Animation', 'Biography','Comedy', 'Crime', 'Documentary' ,'Drama', 'Family', 'Fantasy',' Film Noir', 'Game-Show', 'History', 'Horror', 'Musical', 'Music', 'Mystery', 'News', 'Reality-TV','Romance', 'Sci-Fi', 'Short', 'Sport', 'Talk-Show', 'Thriller', 'War', 'Western'];
+        // That is not posible since the info will be available only after an instance of Film is created, remember it was declared as part of the constructor
+        // We'll implement what is called a static property using getter and setter methods to acces that info from the class itself
+
         //Métodos auto ejecutables de validaciones cuando se llama al constructor
         this.validIMDB(id);
         this.validTitle(title);
         this.validDirector(director);
         this.validYear(year);
+        this.validCountry(country);
+        this.validGenres(genres);
+        this.validRate(rate);
+        
+    };
+    
+    // Static attribute
+    static get listGenres(){
+        return ['Action', 'Adult', 'Adventure', 'Animation', 'Biography','Comedy', 'Crime', 'Documentary' ,'Drama', 'Family', 'Fantasy',' Film Noir', 'Game-Show', 'History', 'Horror', 'Musical', 'Music', 'Mystery', 'News', 'Reality-TV','Romance', 'Sci-Fi', 'Short', 'Sport', 'Talk-Show', 'Thriller', 'War', 'Western']
+    };
+    
+    //Static Method
+    static getListGenres(){
+        return console.log(`Allowed Genres: \n${Film.listGenres.join(', ')}`)
+    }
+    
+    //Para validar las propiedades id Title Director que deben recibir string
+    validString(property, value, length = 0){
+        if (!value) return console.warn(`${property}:${value} está vacio`);
+        if(typeof value !== 'string') return console.error(`${property}:${value} no es string`);
+        if (length !== 0){
+            if(value.length > length+1) return console.error(`${property}:${value} too long, must be under ${length} characters`);
+        };
 
+        return true;
     };
 
-    //Para validar las propiedades id Title Director que deben recibir string
-    validString(property, value){
-        if (!value) return console.warn(`${property}:${valor} está vacio`);
-        if(typeof value !== 'string') return console.error(`${property}:${valor} no es string`);
-        
-        return true;
+    validArray(property, value){
+        if (!value) return console.warn(`${property}:${value} array vacio`);
+        if(!(value instanceof Array)) return console.error(`${property}:${value} is not Array`);
+        if(value.length == 0) return console.warn(`${property}:${value} is empty`);
+        for(let string of value){
+            if(typeof string !== 'string') return console.error(`${property}:${string} element is not of type string`)
+        };
     };
 
     validIMDB(id){
@@ -309,29 +338,56 @@ class Film{
     };
 
     validTitle(title){
-        if(this.validString('Title', title)){
-            if(!(title.length < 101)) return console.error(`title: ${title} no valido, mayor a 100 caracteres`)
-        };
-    }
+        this.validString('Title', title,100)
+    };
 
     validDirector(director){
-        if(this.validString('Director', director)){
-            if(!(director.length < 51)) return console.error(`Director: ${director} no valido, mayor a 50 caracteres`)
+        if(this.validString('Director', director,50)){    
         };
-    }
+    };
 
     validYear(year){
         if (!year) return console.warn(`Year: ${year} está vacio`);
         if(typeof year !== 'number') return console.error(`Year:${year} no es number`);
-
         if(!(year > 1899 && year < 3000)) return console.error(`Year: ${year} no valido, debe tener 4 dígitos`)
+    };
+    
+    validCountry(country){
+        this.validArray('Country',country);
+    };
+    
+    validGenres(genres){
+        this.validArray('Genre',genres);
         
-    }
+        let count = 0;
+        for(let acceptedGenre of Film.listGenres){
+            for(let genre of genres){
+                if(genre == acceptedGenre){
+                    count += 1
+                };
+            };
+        };
+        //I know nested for is O(n^2) this is provisional since this is a tremendous expensive solution
+        
+        (count === 0)
+          ? console.error(`Genres: [${genres}] genre not allowed`)
+          : (count === genres.length)
+              ? true 
+              : console.warn(`Genres: [${genres}] ${count} genre didnt pass\n\nAllowed Genres:\n${Film.listGenres}`);  
+    };
+
+    validRate(rate){
+        
+        if(typeof rate !== 'number') return console.error(`Rate: ${rate} is not a number`);
+        if(rate < 0) return console.error(`Rate: ${rate} must be greatear than 0.0`);
+        if(rate > 10) return console.error(`Rate:${rate}. Rate must be smaller than 10`)
+        if(!(/^1?[0-9].?[0-9]$/.test(rate))) console.error(`Rate:${rate}. Rate must be in the form (#.#) with integers from 0 to 9. eg. 5.6`)
+    };
 };
 
-let yearTest = 199;
-let titleTest = '1re recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
-let movie = new Film('tt234556',titleTest,titleTest,yearTest,'England','Drama, War','9.9');
+
+let movie = new Film('tt2354556','Juan Musguito','jonhy Bravo',1999,['USA'],['Drama','Horror'],0.1);
 console.log(movie);
+
 
 
