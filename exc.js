@@ -124,14 +124,14 @@
 
 // 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
 
-const sqNumArray = array => {
-    if (array === undefined) return console.warn ('No metiste un array');
-    if( !(array instanceof Array)) return console.error('Ingresa un array con numeros');
-    if (array.length === 0) return console.warn ('El array está vacío');
-    for (let num of array){
-        if (typeof num !== 'number') {
-            return console.error('Los valores del array no son numeros')};
-    };
+// const sqNumArray = array => {
+//     if (array === undefined) return console.warn ('No metiste un array');
+//     if( !(array instanceof Array)) return console.error('Ingresa un array con numeros');
+//     if (array.length === 0) return console.warn ('El array está vacío');
+//     for (let num of array){
+//         if (typeof num !== 'number') {
+//             return console.error('El valor ${num} no es tipo number')};
+//     };
 
 //     return array.map(number => {
 //         return number ** 2;
@@ -173,22 +173,105 @@ const sqNumArray = array => {
 // 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
 
 // const evenAndOdds = numbersArray => {
-    // if (array === undefined) return console.warn ('No metiste un array');
-    // if( !(array instanceof Array)) return console.error('Ingresa un array con numeros');
-    // if (array.length === 0) return console.warn ('El array está vacío');
-    // for (let num of array){
-    //     if (typeof num !== 'number') {
-    //         return console.error('Los valores del array no son numeros')};
-    // };
-    
+//     if (numbersArray === undefined) return console.warn ('No metiste un array');
+//     if( !(numbersArray instanceof Array)) return console.error('Ingresa un array con numeros');
+//     if (numbersArray.length === 0) return console.warn ('El array está vacío');
+//     for (let num of numbersArray){
+//         if (typeof num !== 'number') {
+//             return console.error('Los valores del array no son numeros')};
+//     };
 //     let even = [];
 //     let odd = [];
-//     numbersArray.map(number => {
-//         (number%2 === 0)
+//     numbersArray.map(number => 
+//         (number % 2 === 0)
 //           ?  even.push(number)
-//           :  odd.push(number); 
-//     });
-
-//     return [even,odd];
+//           :  odd.push(number) 
+//     );
+//     return {original: numbersArray,even,odd};
 // };
 // console.log(evenAndOdds([1,2,3,4,5,6,7,8,9,0]));
+// Con .filter(callback) sale igual facilisimo
+
+// 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+// const sortArray = array => {
+//     if (array === undefined) return console.warn ('No metiste un array');
+//     if( !(array instanceof Array)) return console.error('Ingresa un array con numeros');
+//     if (array.length === 0) return console.warn ('El array está vacío');
+//     for (let num of array){
+//         if (typeof num !== 'number') {
+//             return console.error(`El valor ${num} del array no es tipo number`)};
+//     };
+
+//     let asc = array.sort();
+//     let des = asc.slice(0).reverse();
+//     // des = [0.123]
+//     return {asc,des};
+// };
+// console.log(sortArray([7, 5,7,8,6]));
+// console.log(sortArray([7, 'a',7,8,6]));
+// console.log(sortArray([]));
+
+// 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+
+// const delDupli = array => new Set(array);
+//     if (array === undefined) return console.warn ('No metiste un array');
+//     if( !(array instanceof Array)) return console.error('Ingresa un array con numeros');
+//     if (array.length === 0) return console.warn ('El array está vacío');
+//     for (let num of array){
+//         if (typeof num !== 'number') {
+//             return console.error(`El valor ${num} del array no es tipo number`)};
+//     };
+
+// console.log(delDupli(["x", 10, "x", 2, "10", 10, true, true]));
+// set1 = delDupli(["x", 10, "x", 2, "10", 10, true, true]);
+// console.log(set1 instanceof Array);
+// console.log(set1 instanceof Set);
+// Deja de ser un objeto Array y pasa a ser un Set, pero podemos hacer casting para que el Set se haga Array de vuelta
+
+
+// 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+
+// const mean = numbers => {
+//         if (numbers === undefined) return console.warn ('No metiste un array');
+//     if( !(numbers instanceof Array)) return console.error('Ingresa un array con numeros');
+//     if (numbers.length === 0) return console.warn ('El array está vacío');
+//     for (let num of numbers){
+//         if (typeof num !== 'number') {
+//             return console.error(`El valor ${num} en [${numbers.indexOf(num)}] del array no es tipo number`)};
+//     };
+
+//     let sum = 0;
+//     for(let number of numbers){
+//         sum += number;
+//     };
+//     return sum/(numbers.length);
+// };    
+// console.log(mean([9,8,7,6,5,4,3,2,1,0]));
+// console.log(mean([9,8,7,6,'¡',4,3,2,1,0]));
+// console.log(mean([]));
+// console.log(mean([9,8,7,6,5,4,3,2,1,0,9]));
+
+
+// 27) Programa una clase llamada Pelicula.
+
+// La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+//   - Todos los datos del objeto son obligatorios.
+//   - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+//      7 restantes números.
+//   - Valida que el título no rebase los 100 caracteres.
+//   - Valida que el director no rebase los 50 caracteres.
+//   - Valida que el año de estreno sea un número entero de 4 dígitos.
+//   - Valida que el país o paises sea introducidos en forma de arreglo.
+//   - Valida que los géneros sean introducidos en forma de arreglo.
+//   - Valida que los géneros introducidos esten dentro de los géneros 
+//      aceptados*.
+//   - Crea un método estático que devuelva los géneros aceptados*.
+//   - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+//     decimal de una posición.
+//   - Crea un método que devuelva toda la ficha técnica de la película.
+//   - Apartir de un arreglo con la información de 3 películas genera 3 
+//     instancias de la clase de forma automatizada e imprime la ficha técnica 
+//     de cada película.
+
+// Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+
