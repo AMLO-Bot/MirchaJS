@@ -256,11 +256,11 @@
 
 // La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
 //   - Todos los datos del objeto son obligatorios.
-//   - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+//   😊- Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
 //      7 restantes números.
-//   - Valida que el título no rebase los 100 caracteres.
-//   - Valida que el director no rebase los 50 caracteres.
-//   - Valida que el año de estreno sea un número entero de 4 dígitos.
+//   😊- Valida que el título no rebase los 100 caracteres.
+//   😊- Valida que el director no rebase los 50 caracteres. ^\w{1,50}$
+//   😊- Valida que el año de estreno sea un número entero de 4 dígitos.
 //   - Valida que el país o paises sea introducidos en forma de arreglo.
 //   - Valida que los géneros sean introducidos en forma de arreglo.
 //   - Valida que los géneros introducidos esten dentro de los géneros 
@@ -274,4 +274,64 @@
 //     de cada película.
 
 // Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+
+class Film{
+    constructor(id, title, director, year,country,genre,rate){
+        this.id = id;
+        this.title = title;
+        this.director = director;
+        this.year = year;
+        this.country = country;
+        this.genre = genre;
+        this.rate = rate;
+        //Métodos auto ejecutables de validaciones cuando se llama al constructor
+        this.validIMDB(id);
+        this.validTitle(title);
+        this.validDirector(director);
+        this.validYear(year);
+
+    };
+
+    //Para validar las propiedades id Title Director que deben recibir string
+    validString(property, value){
+        if (!value) return console.warn(`${property}:${valor} está vacio`);
+        if(typeof value !== 'string') return console.error(`${property}:${valor} no es string`);
+        
+        return true;
+    };
+
+    validIMDB(id){
+        if(this.validString('idIMDB', id)){
+            if(!(/^([a-z]{2}[0-9]{7})$/.test(id))){
+                return console.error(`id: ${id}, not valid, must begin with 2 letters and end with 7 numbers`);
+            };
+        };
+    };
+
+    validTitle(title){
+        if(this.validString('Title', title)){
+            if(!(title.length < 101)) return console.error(`title: ${title} no valido, mayor a 100 caracteres`)
+        };
+    }
+
+    validDirector(director){
+        if(this.validString('Director', director)){
+            if(!(director.length < 51)) return console.error(`Director: ${director} no valido, mayor a 50 caracteres`)
+        };
+    }
+
+    validYear(year){
+        if (!year) return console.warn(`Year: ${year} está vacio`);
+        if(typeof year !== 'number') return console.error(`Year:${year} no es number`);
+
+        if(!(year > 1899 && year < 3000)) return console.error(`Year: ${year} no valido, debe tener 4 dígitos`)
+        
+    }
+};
+
+let yearTest = 199;
+let titleTest = '1re recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
+let movie = new Film('tt234556',titleTest,titleTest,yearTest,'England','Drama, War','9.9');
+console.log(movie);
+
 
