@@ -146,16 +146,29 @@
 //     console.log(max);
 //     return [].push(max,min);
 // };
-const minAndMax = array => {
-    let sortedArray = array.sort()
-    let min = sortedArray[0]
-    console.log(min);
-    let max = sortedArray[sortedArray.length-1];
-    console.log(max);
-    ans = [];
-    return [max,min];
-};
+// const minAndMax = array => {
+//     let sortedArray = array.sort()
+//     let min = sortedArray[0]
+//     console.log(min);
+//     let max = sortedArray[sortedArray.length-1];
+//     console.log(max);
+//     ans = [];
+//     return [max,min];
+// };
 
-console.log(minAndMax([1, 4, 5, 99, -60]));
+// console.log(minAndMax([1, 4, 5, 99, -60]));
 
 // 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
+
+// const evenAndOdds = numbersArray => {
+//     let even = [];
+//     let odd = [];
+//     numbersArray.map(number => {
+//         (number%2 === 0)
+//           ?  even.push(number)
+//           :  odd.push(number); 
+//     });
+
+//     return [even,odd];
+// };
+// console.log(evenAndOdds([1,2,3,4,5,6,7,8,9,0]));
