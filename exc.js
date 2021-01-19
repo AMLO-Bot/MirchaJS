@@ -120,13 +120,42 @@
 // console.log(isValidMail('a2500@alumno.ipn.mx'));
 // console.log(isValidMail('aldair.avalos@gamil.com'));
 // console.log(isValidMail('ulises-man@gmail.com'));
-
+// /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/
 
 // 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
 
 // const sqNumArray = array => {
+//     if (array === undefined) return console.warn ('No metiste un array');
+//     if( !(array instanceof Array)) return console.error('Ingresa un array con numeros');
+//     if (array === null) return console.warn ('No metiste un nombre');
 
+//     return array.map(number => {
+//         return number ** 2;
+//     });
 // };
 
+// console.log(sqNumArray([1,2,3,4,5,6,7]));
+// console.log(sqNumArray([]));
+// console.log(sqNumArray(['a','b','c','d','e','f','g']));
+
 // 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+// const minAndMax = array => {
+//     let min = Math.min(...array);
+//     console.log(min);
+//     let max = Math.max(...array);
+//     console.log(max);
+//     return [].push(max,min);
+// };
+const minAndMax = array => {
+    let sortedArray = array.sort()
+    let min = sortedArray[0]
+    console.log(min);
+    let max = sortedArray[sortedArray.length-1];
+    console.log(max);
+    ans = [];
+    return [max,min];
+};
+
+console.log(minAndMax([1, 4, 5, 99, -60]));
+
 // 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
