@@ -254,14 +254,14 @@
 
 // 27) Programa una clase llamada Pelicula.
 
-// La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+// La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, title, director, año de year, país o países de origen, géneros y calificación en IMBD.
 //   - Todos los datos del objeto son obligatorios.
 //   😊- Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
 //      7 restantes números.
 //   😊- Valida que el título no rebase los 100 caracteres.
 //   😊- Valida que el director no rebase los 50 caracteres. ^\w{1,50}$
-//   😊- Valida que el año de estreno sea un número entero de 4 dígitos.
-//   😊- Valida que el país o paises sea introducidos en forma de arreglo.
+//   😊- Valida que el año de year sea un número entero de 4 dígitos.
+//   😊- Valida que el país o countryes sea introducidos en forma de arreglo.
 //   😊- Valida que los géneros sean introducidos en forma de arreglo.
 //   😊🤔- Valida que los géneros introducidos esten dentro de los géneros 
 //      aceptados*.
@@ -275,8 +275,9 @@
 
 // Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 
-class Film{
-    constructor(id, title, director, year,country,genres,rate,acceptedGenres = []){
+//1st class i do, feels good men 😁
+class Film {
+    constructor({id, title, director, year,country,genres,rate}){
         this.id = id;
         this.title = title;
         this.director = director;
@@ -399,10 +400,39 @@ class Film{
     };
 };
 
+const peliculas = [
+    {
+      id: 'tt1234567',
+      title: "el title",
+      director: "Manuel medarno",
+      year: 2020,
+      country: ["Mexico"],
+      genres: ["Comedy", "Sport"],
+      rate: 1.0,
+    },
+    {
+      id: "tt1234567",
+      title: "el title",
+      director: "Manuel medarno",
+      year: 2020,
+      country: ["Mexico"],
+      genres: ["Comedy", "Sport"],
+      rate: 2.0,
+    },
+    {
+      id: "tt1234567",
+      title: "el title",
+      director: "Manuel medarno",
+      year: 2020,
+      country: ["Mexico"],
+      genres: ["Comedy", "Sport"],
+      rate: 8.0,
+    }
+];
 
-let movie = new Film('tt2354556','Juan Musguito','jonhy Bravo',1999,['USA','Mexico','Singapore'],['Drama','Horror'],0.1);
-console.log(movie);
-console.log(movie.datasheet());
+peliculas.forEach(peli => {
+    new Film(peli).datasheet();
+});
 
 
 
