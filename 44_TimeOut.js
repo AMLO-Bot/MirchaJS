@@ -19,3 +19,4 @@ setTimeout(() => {
 setTimeout(() => {
     clearInterval(interval);    
 }, 7000);
+    
