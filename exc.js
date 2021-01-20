@@ -268,7 +268,7 @@
 //   😊- Crea un método estático que devuelva los géneros aceptados*.
 //   😊- Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
 //     decimal de una posición.
-//   - Crea un método que devuelva toda la ficha técnica de la película.
+//   😊- Crea un método que devuelva toda la ficha técnica de la película.
 //   - Apartir de un arreglo con la información de 3 películas genera 3 
 //     instancias de la clase de forma automatizada e imprime la ficha técnica 
 //     de cada película.
@@ -309,7 +309,21 @@ class Film{
         return console.log(`Allowed Genres: \n${Film.listGenres.join(', ')}`)
     }
     
-    //Para validar las propiedades id Title Director que deben recibir string
+    //Technical Data
+    datasheet(){
+        console.info(`
+        Ficha técnica\n
+        idIMDB: ${this.id}
+        Título: ${this.title} 
+        Director: ${this.director}
+        Year of Release: ${this.year}
+        Conutry: ${this.country}
+        Genres: ${this.genres}
+        iMDB Rating: ${this.rate}    
+        `)
+    };
+
+    //Validations for class attributes
     validString(property, value, length = 0){
         if (!value) return console.warn(`${property}:${value} está vacio`);
         if(typeof value !== 'string') return console.error(`${property}:${value} no es string`);
@@ -386,8 +400,9 @@ class Film{
 };
 
 
-let movie = new Film('tt2354556','Juan Musguito','jonhy Bravo',1999,['USA'],['Drama','Horror'],0.1);
+let movie = new Film('tt2354556','Juan Musguito','jonhy Bravo',1999,['USA','Mexico','Singapore'],['Drama','Horror'],0.1);
 console.log(movie);
+console.log(movie.datasheet());
 
 
 
