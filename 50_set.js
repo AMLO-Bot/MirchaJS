@@ -17,9 +17,18 @@ console.log(emails,emails instanceof Array);
 emails = new Set(emails);
 console.log(emails, emails instanceof Set);
 
-//Propiedades
+//Propiedades y métodos
 console.log(`Set de tamaño ${emails.size}`);
 emails.add({prefix:'aldair.avl',sufix:'gamil',domain:'WTF'});
 console.log(`Set de tamaño ${emails.size}`);
+console.log(emails);
+
+//Verificamos la existencia de un elemento, lo eliminamos y volvemos  a checar si existe. 
+console.log(emails.has('aldair.avalos1.2000@gmail.com'))
+console.log(emails.delete('aldair.avalos1.2000@gmail.com'))
+console.log(emails.has('aldair.avalos1.2000@gmail.com'))
+
+//Para reinicializar un Set
+emails.clear();
 console.log(emails);
 
