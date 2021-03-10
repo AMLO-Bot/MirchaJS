@@ -1,7 +1,11 @@
 :root{
     font-size: 62.5%;
     font-family: 'Nunito';
+    --bg-color: rgba(27, 97, 236, 0.753);
+    --bg-sec-color:#5689;
+    --border-card-section: rgb(214, 98, 117);
 }
+
 *{
     margin:0;
     padding:0;
@@ -30,6 +34,7 @@ ul {
 li {
     margin-left:5px;
 }
+
 form {
     display:flex;
     flex-flow: row wrap;
@@ -44,6 +49,7 @@ form {
     border-bottom: solid transparent  1px;
     transition: all ease-in-out 0.5s;
 }
+
 .home-link:hover{
    color: rgb(184, 48, 165);
    border-color: violet;
@@ -53,4 +59,42 @@ form {
     margin-top: 5px;
 }
 
+.cards {
+    border: solid 2px var(--border-card-section);
+    border-radius: 2px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    max-width: 80vw;
+}
+
+.card {
+    display: inline-block;
+    background-color: var(--bg-color);
+    color: var(--bg-sec-color);
+    margin-bottom: 10px;
+}
+
+.card figcaption {
+    padding: 1rem;
+}
+
+.rot-45 {
+    transition: transform .5s ease-in-out;
+    transform:rotate(45deg);
+}
+
+.rot-135 {
+    transition: transform .5s ease-in-out;
+    transform:rotate(135deg);
+}
+
+.opacity-80 {
+    opacity: .8;
+}
+
+.sepia {
+    filter: sepia(1);
+}
 
