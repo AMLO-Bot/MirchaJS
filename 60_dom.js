@@ -159,18 +159,59 @@ seasons.forEach(season => {
 });
 
 //Las modificaciones al DOM son operaciones basante demandantes por lo que se deben implementar "fragmentos" donde se modificara el html necesario para luego renderizarlo cuando esté listo. Los fragmentos se alojan en RAM antes de presentarlos en el navegador
-const months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Noviembre","Diciembre"];
-const $ul2 = document.createElement("ul"),
-$fragment =document.createDocumentFragment();
+// const months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Noviembre","Diciembre"];
+// const $ul2 = document.createElement("ul"),
+// $fragment =document.createDocumentFragment();
 
-months.forEach(month => {
-  const $li = document.createElement("li");
-  $li.textContent = month;
-  $fragment.appendChild($li);
+// months.forEach(month => {
+//   const $li = document.createElement("li");
+//   $li.textContent = month;
+//   $fragment.appendChild($li);
+// });
+// document.write("<h3>Meses del Año</h3>")
+// $ul2.appendChild($fragment); 
+// document.body.appendChild($ul2); //Finally append the element in body
+
+//Templates WTF
+//Get template tag inner elements
+const $template = document.getElementById("template-card").content,
+$fragment = document.createDocumentFragment(); // recuerda que trabajamos con fragmentos to not overload DOM with requests
+//AJAX FETCH simulation of data request
+cardContent =[
+  {
+    title:"Tecnologia",
+    img:"https://placeimg.com/200/200/tech"
+  },
+  {
+    title:"Animales",
+    img:"https://placeimg.com/200/200/animals"
+  },
+  {
+    title:"Arquitectura",
+    img:"https://placeimg.com/200/200/arch"
+  },
+  {
+    title:"Social",
+    img:"https://placeimg.com/200/200/people"
+  },
+  {
+    title:"Naturaleza",
+    img:"https://placeimg.com/200/200/nature"
+  },
+];
+cardContent.forEach(el => {
+  $template.querySelector("img").setAttribute("src",el.img);
+  $template.querySelector("img").setAttribute("alt",el.title);
+  $template.querySelector("figcaption").textContent = el.title;
+  //El template no se puede modificar como tal ya que está declaado como const aparte de ser bad praxis por escalabilidad, entonces se crea una copia del template para ir trabajando ahi, para la copia se usa el método importNode del browser API y se declara true como 2nd parametro para indicar que queremos copiar el node incluyendo su estructura interna.
+  let $clone = document.importNode($template,true)
+  $fragment.appendChild($clone);
 });
-document.write("<h3>Meses del Año</h3>")
-$ul2.appendChild($fragment); 
-document.body.appendChild($ul2); //Finally append the element in body
+//al final se añade el fragmento al DOM, así solo interactuamos con el DOM una sola vez realmente
+$cards.appendChild($fragment);
+
+//----------------------------------------------------------
+
 
 
 
