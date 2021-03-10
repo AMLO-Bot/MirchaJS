@@ -74,10 +74,18 @@ form {
     background-color: var(--bg-color);
     color: var(--bg-sec-color);
     margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .card figcaption {
     padding: 1rem;
+    color: rgb(235, 238, 228);
+    text-align: center;
+}
+
+.card img {
+    border-radius: 10px 10px 0px 0px;
+    background-size: cover;
 }
 
 .rot-45 {

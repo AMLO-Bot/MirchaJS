@@ -131,5 +131,48 @@ console.log($cards.lastElementChild);
 console.log($cards.nextElementSibling);
 console.log($card.closest('figure'))
 
+const $figure = document.createElement("figure"),
+ $img = document.createElement("img"),
+ $figcap = document.createElement("figcaption"),
+ $figcapText = document.createTextNode("ANIAML");
+
+$img.setAttribute("src","https://placeimg.com/200/200/people");
+$img.setAttribute("alt","Persona realizando actividad física");
+$figure.classList.add("card")
+$figcap.appendChild($figcapText) 
+$figure.appendChild($img); 
+$figure.appendChild($figcap); 
+$cards.appendChild($figure);
+
+
+//Creating a ul
+const seasons = ["Primavera","Verano","Otoño","Invierno"];
+const $ul = document.createElement("ul");
+
+document.write("<h3>Estaciones del Año</h3>");
+document.body.appendChild($ul);
+
+seasons.forEach(season => {
+  const $li = document.createElement("li");
+  $li.textContent = season;
+  $ul.appendChild($li)
+});
+
+//Las modificaciones al DOM son operaciones basante demandantes por lo que se deben implementar "fragmentos" donde se modificara el html necesario para luego renderizarlo cuando esté listo. Los fragmentos se alojan en RAM antes de presentarlos en el navegador
+const months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Noviembre","Diciembre"];
+const $ul2 = document.createElement("ul"),
+$fragment =document.createDocumentFragment();
+
+months.forEach(month => {
+  const $li = document.createElement("li");
+  $li.textContent = month;
+  $fragment.appendChild($li);
+});
+document.write("<h3>Meses del Año</h3>")
+$ul2.appendChild($fragment); 
+document.body.appendChild($ul2); //Finally append the element in body
+
+
+
 
 
