@@ -244,10 +244,20 @@ $cards.insertAdjacentElement("afterbegin",$newCard);
 // $cards.before($newCard);
 // $cards.after($newCard);
 
-
-
-
-
-
-
-
+//----------------------------------Manejador de Eventos
+//Se declaran in line en el HTML
+function holaMundo(event){
+  alert('FUCK OFFF')
+  console.log(event);
+};
+const $btnSemantic = document.getElementById("evento-semantico");
+$btnSemantic.onclick = holaMundo; // Los eventos semanticos solo pueden tener una funcion
+//Evento multiple
+const $btnMulti = document.getElementById("evento-multiple");
+$btnMulti.addEventListener("click", holaMundo);
+$btnMulti.addEventListener("click", (ev) => {
+  console.log(ev.type, ev.target)
+});
+$btnMulti.addEventListener("click", (ev) => {
+  console.log("Multiple events triggered");
+});
