@@ -65,7 +65,7 @@ form {
     padding: 15px;
     display: flex;
     justify-content: space-evenly;
-    
+    margin-bottom: 25px;
     flex-flow: row wrap;
     max-width: 80vw;
 }
