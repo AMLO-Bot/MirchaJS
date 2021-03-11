@@ -250,9 +250,9 @@ function holaMundo(event){
   alert('FUCK OFFF')
   console.log(event);
 };
-const $btnSemantic = document.getElementById("evento-semantico");
-$btnSemantic.onclick = holaMundo; // Los eventos semanticos solo pueden tener una funcion
-//Evento multiple
+// const $btnSemantic = document.getElementById("evento-semantico");
+// $btnSemantic.onclick = holaMundo; // Los eventos semanticos solo pueden tener una funcion
+// //Evento multiple
 const $btnMulti = document.getElementById("evento-multiple");
 $btnMulti.addEventListener("click", holaMundo);
 $btnMulti.addEventListener("click", (ev) => {
@@ -261,3 +261,34 @@ $btnMulti.addEventListener("click", (ev) => {
 $btnMulti.addEventListener("click", (ev) => {
   console.log("Multiple events triggered");
 });
+
+//removers
+function saludar(nombre = "Desconocid@"){
+  alert(`Hola ${nombre}`)
+}
+
+$btnMulti.addEventListener("click",saludar);
+
+//IMPOSRTANTE, las funciones que se triggerean al manejar un evento e.g. holaMundo, saludar, no pueden revisir más parámetros que el propio event ev [mouse ObjectHandler]-
+//Entonces ¿como carajos le hago para seguir metiendo parámetros a una función manejadora de eventos?
+// Arrow Functions ma boi
+$btnMulti.addEventListener("click",() => {
+  saludar();
+  saludar("Juancho");
+});
+//La funcion manejadora de evento es la arrow function y dentro de la funcion ya podemos ejectura libremente la funcion que queramos con los parámetros que hagan falta, Ay Peeerrrro Te vas Pa tras ಠ_ಠ.
+
+//Cosa curiosa para quitar eventListeners de los elementos, el método removeEventListener necesita como parámetro la función manejadora de evento que se quiere retirar, por lo tanto el método no puede retirar eventListsner manejados por arrow functions porque no tiene una referencia explicita. Debe declarase o expresarse la función manejadora de eventos o "EventTarget" para poder ser removida.
+
+const removerDBClick = (e) => {
+  alert(`removiendo el evento de tipo ${e.type}`)
+  console.log(e);
+  $btnRm.removeEventListener("dblclick",removerDBClick);
+  $btnRm.disabled = true;
+};
+
+const $btnRm = document.getElementById("evento-remover");
+$btnRm.addEventListener("dblclick",removerDBClick);
+
+
+
