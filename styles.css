@@ -107,4 +107,29 @@ form {
 .sepia {
     filter: sepia(1);
 }
+/* Burbuja  */
+/* .eventos__flujo {
+    
+    
+    
+} */
 
+.eventos__flujo div {
+    padding:6.4rem;
+    font-size: 3.2rem;
+    text-align: center;
+}
+
+.uno {
+    background-color: red;
+    width: 100%;
+    padding:6.4rem;
+}
+.dos {
+    background-color: yellow;
+    padding:6.4rem;
+}
+.tres {
+    background-color: green;
+    padding:6.4rem;
+}

@@ -283,12 +283,37 @@ $btnMulti.addEventListener("click",() => {
 const removerDBClick = (e) => {
   alert(`removiendo el evento de tipo ${e.type}`)
   console.log(e);
-  $btnRm.removeEventListener("dblclick",removerDBClick);
-  $btnRm.disabled = true;
+  // $btnRm.removeEventListener("click",removerDBClick);
+  // $btnRm.disabled = true;
 };
 
 const $btnRm = document.getElementById("evento-remover");
-$btnRm.addEventListener("dblclick",removerDBClick);
+$btnRm.addEventListener("click",removerDBClick,{
+  once:true
+});
+
+//------------------Modelo Captura Burbuja
+const $divsEventos = document.querySelectorAll(".eventos-flujo div");
+console.log($divsEventos);
+
+function flujoEventos(e){
+  console.log(`Hola te saluda ${this.className}, y lo origina ${e.target.className}`); //en este caso this apunta al div, no apunta a global
+};
+
+$divsEventos.forEach(div => {
+  div.addEventListener("click",flujoEventos,true); // OJITO al boolean, es como un toggle de modo burbuja o captura
+});
+//Aqui vemos como se propaga en el evento en divs que aparentemente son independientes pero estan anidadas. Tendrias que ver como se imprime en la consola al momento de triggerear el evento click en los divs pa que veas como esta esto
+//Si el evento se sobrepone el primero en ejecutarse es el mas encapsulado, el mas profundo, en este caso el primero en ejecutarse el div.tres
+//La burbuja triggerea desde el mas interno al mas externo y la captura va al revés, de lo externo a lo interno,  se dice que para estructuras del DOM complejas es más eficiente hacer los eventos en captura.
+
+//Burbuja es default que es false, ese parámetro puede recibir un objeto donde se especifiquen todas las opciones del eventListener
+$divsEventos.forEach(div => {
+  div.addEventListener("click",flujoEventos,{
+    capture:true,
+    once:true, //Si checamos la doc consultamos las opciones del evento, con once:true el evento solo se dipara una vez, por ejemplo en vez de settear el atributo de disabled de un boton en HTML podemos simplemente activar esta opcion
+  }); 
+});
 
 
 
