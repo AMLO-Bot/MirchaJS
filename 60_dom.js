@@ -327,7 +327,6 @@ function flujoEventos(e){
 
 //---------Event Delegation---
 //Consiste en añadir el eventListener a todo el html, y luego ir ir viendo que elemento responde al evento, mejoras performance y mantenibilidad y legibilidad, namas pones un eventListener y ay muere
-
 document.addEventListener("click",(e) => {
   console.log(`Click en:`,e.target);
   if(e.target.matches(".eventos-flujo a")){
@@ -339,8 +338,61 @@ document.addEventListener("click",(e) => {
     flujoEventos(e);
   };
 });
-
 console.log(this.document)
+
+//---------BOM Browser Object Model
+//Eventos ligados al browser
+window.addEventListener("resize",(e) => {
+  console.clear();
+  console.log("console.log evento resize");
+  console.log(e.type);
+  console.log(window.innerWidth);
+  console.log(window.innerHeight);
+  console.log(window.outerWidth);
+  console.log(window.outerHeight);
+});
+
+window.addEventListener("scroll",(e) => {
+  console.clear();
+  console.log(e.type);
+  console.log(window.scrollX);
+  console.log(window.scrollY);
+});
+
+// el evento load se aplica cuando se parse el html, css, script, y se renderiza
+window.addEventListener("load", e => { 
+  console.log(e);
+  console.log(window.screenX);
+  console.log(window.screenY);
+});
+
+//El DOMCOntentLoaded es mas chido, porque solo tiene que esperar a que se parsee el html 
+document.addEventListener("DOMContentLoaded", e => {
+  console.log(e);
+  console.log(window.screenX);
+  console.log(window.screenY);
+});
+
+//Metodos del browser / window
+prompt("Ur Name Sir? 🙂👾"); ////Regresa el string
+confirm("You Agree?");  ////Lo puedes guardar en una variable, regresa boolean
+const $btnAbrir = document.getElementById("abrir-ventana"),
+$btnCerra = document.getElementById("cerrar-ventana"),
+$btnPrint = document.getElementById("imprimir-ventana");
+
+let ventana;
+$btnAbrir.addEventListener("click", e => {
+  ventana = window.open("https://www.youtube.com");
+});
+$btnCerra.addEventListener("click", e => {
+  ventana.close();
+});
+$btnPrint.addEventListener("click", e => {
+  console.log("EVENT")
+  let printedBrowser = window.print();
+  // console.log(printedBrowser)
+});
+
 
 
 
