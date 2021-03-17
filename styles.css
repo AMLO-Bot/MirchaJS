@@ -1,48 +1,79 @@
+/* RESETEO DE ESTILOS */
+
+/* VARIABLES */
+/* Siempre trata de definir custom properties */
 :root{
     font-size: 62.5%;
-    font-family: 'Nunito';
-    --bg-color: rgba(27, 97, 236, 0.753);
-    --bg-sec-color:#5689;
-    --border-card-section: rgb(214, 98, 117);
+    --main-font: 'Nunito';
+    --main-color: #f7df1e;
+    --sec-color:#222;
+    --main-modal-color: rgba(247, 222, 30, 0.25);
+    --sec-modal-color: rgba(34, 34, 34, 0.85);
+    --container-width: 1200px;
 }
 
-html{scroll-behavior:smooth}
-
-*{
+/* RESETEO */
+/*Try to set gobal styles within html selector, USE CUSTOM PROPERTIES */
+html{
+    font-family: var(--main-font);
+    scroll-behavior:smooth;
+    box-sizing: border-box;
+}
+/* Para resetterar los margin y padding usa el selector *, si usas el html solo se aplica al body como tal y no a todos los elementos contenidos en el */
+/* Para que todo herede el border-box */
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
     margin:0;
     padding:0;
-    box-sizing: border-box;
 }
 
 body{
-    background-color:antiquewhite;
     display: flex;
     flex-flow: row wrap; 
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;    
 }
-section {
+
+/* HEADER */
+.header {
+    position: sticky;
+    top: 0;
     width: 100vw;
-    height: 400px;
-    background-color: royalblue;
+    padding: 1.6rem;
+    color: var(--sec-color);
+    background-color: var(--main-color);
 }
 
 h1,
 h2 {
+    width: 100%;
     text-align: center;
     line-height: 75px;
-    width: 100vw;
     font-size: 2.6rem;
-    color:green;
 }
 
-h1 {
-    background-color: blue;
+section {
+    padding: 3.2rem;
+    padding-top: 6.4rem;
+    width: 100vw;
+    max-width: var(--container-width);
+    min-height: 100vh;
+    text-align: center;
 }
+
+
 
 h2 {
     font-size: 2.0rem;
-    color: rgb(10, 210, 236);
+}
+
+/* Las imagenes ocuparan todo el ancho de los contenedores */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Burger Menu */
@@ -50,9 +81,9 @@ h2 {
 .burger-menu {
     display: none;
     position: fixed;
-    top:-3000px;
     width: 100vw;
     height: 100vh;
+    top:-3000px;
     padding: 30px 15px;
     background-color: rgba(19, 19, 158, 0.5);
     transition: top 300ms; 
@@ -86,44 +117,49 @@ a {
 
 /* Utilities */
 /* Hide Element */
+.panel-btn {
+    display: flex;
+    position: fixed;
+    left: 74vw;
+    bottom:2vw;
+    width: 6.4rem;
+    height: 6.4rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--main-color);
+}
+
 .is-displayed{
     display:block;
     top:0;
 }
 /* Hmaburger Menu */
 .hamburger {
-    position: fixed;
-    
-    bottom:2vw;
-    left: 74vw;
-    
-    padding: 15px 15px;
-    display: inline-block;
-    cursor: pointer;
-    transition-property: opacity, filter;
-    transition-duration: 0.15s;
-    transition-timing-function: linear;
-    font: inherit;
-    color: inherit;
-    text-transform: none;
-    background-color: transparent;
-    border: 0;
-    margin: 0;
-    overflow: visible; }
+transition-property: opacity, filter;
+transition-duration: 0.15s;
+transition-timing-function: linear;
+font: inherit;
+color: inherit;
+text-transform: none;
+border: 0;
+margin: 0;
+overflow: visible; }
 .hamburger:hover {
-    opacity: 0.7; }
+opacity: 0.7; }
 .hamburger.is-active:hover {
-    opacity: 0.7; }
+opacity: 0.7; }
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
-    background-color: #000; }
+background-color: #000; }
 
 .hamburger-box {
-width: 40px;
-height: 24px;
-display: inline-block;
-position: relative; }
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative; }
 .hamburger-inner {
 display: block;
 top: 50%;
@@ -170,4 +206,20 @@ transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
     transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }
   
 /* ScrollBar */
-
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(13deg, #404113 14%,#202003 60%);
+    border-radius: 12px;
+    box-shadow: inset 1px 16px 12px #eff0ed;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(0deg, #404113 14%,#55550e 64%);
+}
+::-webkit-scrollbar-track{
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: inset 7px 10px 12px #f0f0f0;
+}

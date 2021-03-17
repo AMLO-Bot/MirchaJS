@@ -5,7 +5,7 @@ const $menuItems = document.querySelectorAll("li")
 //Toggle animation of $hamburgerBtn, and toggle display of menu section
 const activeToggleMenu = () => {
   $hamburgerBtn.classList.toggle("is-active");
-  $hamburgerSect.classList.toggle("is-displayed")
+  $hamburgerSect.classList.toggle("is-displayed");
 };
 
 $hamburgerBtn.addEventListener("click", () => {
