@@ -1,4 +1,5 @@
 import hamburgerMenu from "./hamburgerMenu.js";
+import clock from "./clock.js";
 
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
