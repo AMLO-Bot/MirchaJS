@@ -1,7 +1,19 @@
+const $hamburgerSect = document.querySelector(".burger-menu");
+const $hamburgerBtn = document.querySelector(".hamburger");
+const $menuItems = document.querySelectorAll("li")
 
-const hamburger = document.querySelector(".hamburger");
-// On click
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("is-active");
-  // Do something else, like open/close menu
+//Toggle animation of $hamburgerBtn, and toggle display of menu section
+const activeToggleMenu = () => {
+  $hamburgerBtn.classList.toggle("is-active");
+  $hamburgerSect.classList.toggle("is-displayed")
+};
+
+$hamburgerBtn.addEventListener("click", () => {
+  activeToggleMenu();
+});
+
+$menuItems.forEach(item => {
+  item.addEventListener("click", () => {
+    activeToggleMenu();
+  });
 });

@@ -22,8 +22,8 @@ body{
     align-items: center;
 }
 section {
-    /* width: 100vw; */
-    height: 300px;
+    width: 100vw;
+    height: 400px;
     background-color: royalblue;
 }
 
@@ -49,16 +49,23 @@ h2 {
 
 .burger-menu {
     display: none;
+    position: fixed;
+    top:-3000px;
     width: 100vw;
-    height: auto;
+    height: 100vh;
+    padding: 30px 15px;
     background-color: rgba(19, 19, 158, 0.5);
-    padding: 15px;
+    transition: top 300ms; 
 }
-
+nav{
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+}
 ul {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    
+    justify-content:space-evenly;
     flex-flow: row wrap;
 }
 li {
@@ -66,8 +73,11 @@ li {
     margin-bottom: 35px;
     text-align: center;
     font-size: 2.6rem;
-    
     list-style: none;
+    transition: background-color 0.2s ease-in;
+}
+li:hover{
+    background-color: rgba(49, 49, 27,0.6);
 }
 a {
     color: yellow;
@@ -75,8 +85,18 @@ a {
 }
 
 /* Utilities */
+/* Hide Element */
+.is-displayed{
+    display:block;
+    top:0;
+}
 /* Hmaburger Menu */
 .hamburger {
+    position: fixed;
+    
+    bottom:2vw;
+    left: 74vw;
+    
     padding: 15px 15px;
     display: inline-block;
     cursor: pointer;
