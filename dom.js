@@ -1,5 +1,7 @@
+import { ball, notify} from "./keyboard.js";
 import {digitalClock, alarm} from "./clock.js";
-import hamburgerMenu from "./hamburgerMenu.js";
+import {hamburgerMenu} from "./hamburgerMenu.js";
+import { notify } from "./notify.js";
 
 
 const d = document;
@@ -8,9 +10,12 @@ d.addEventListener("DOMContentLoaded", ev => {
   hamburgerMenu(".hamburger-btn", ".hamburger-menu");
   digitalClock(".clock",".btns--start",".btns--stop");
   alarm("./alarm.mp3",".btns--alarm-on",".btns--alarm-off");
-  // clockControls(".clock",".btns--start",".btns--stop","btns--alarm-on","btns--alarm-off");
 });
 
+d.addEventListener("keydown", ev =>{
+  ball("#ball");
+  notify(ev);
+})
 
 
 
