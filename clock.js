@@ -1,12 +1,13 @@
+const d = document;
+
 export function digitalClock(clock, btnStart, btnStop) {
   if(typeof btnStart !== "string") return;
   if(typeof btnStop !== "string") return;
 
-  const d = document;
-  console.log(btnStop)
-  console.log(btnStart)
   //Para no tener problemas con el scope, se inicializa el timing que es donde guardaremos el intervalo  afuera del event listener
   let timingInterval;
+
+  //Esto podria hacerse con innerHTML y seria bastante mas sencillo y rendidor pero bastante inseguro, so podría inyectar html malicioso desde ahi
   d.addEventListener("click", ev => {
     if(ev.target.matches(btnStart)){
       timingInterval = setInterval(() => {
@@ -26,13 +27,14 @@ export function digitalClock(clock, btnStart, btnStop) {
       ev.target.disabled = true
       d.querySelector(btnStart).disabled = false;
     };
-
-    
+ 
   });
 }
 
+
+//Vamos a implementar de otra manera
 export function alarm(alarm,btnAlarmOn,btnAlarmOff) {
-  const d = document;
+
   d.addEventListener("click", ev => {
     if(ev.target.matches(btnAlarmOn)){
       console.log("EV")
@@ -45,7 +47,6 @@ export function alarm(alarm,btnAlarmOn,btnAlarmOff) {
     };
 
     if(ev.target.matches(btnAlarmOff)){
-      console.log("EV5")
       d.querySelector(alarm).pause();
       d.querySelector(alarm).currentTime = 0;
 
@@ -54,6 +55,10 @@ export function alarm(alarm,btnAlarmOn,btnAlarmOff) {
     };
   })
 }
+
+
+
+
 
 
 //Es un desastre, no te rindas, ya tienes una pista, sigue intentandolo, refactor y sigue
