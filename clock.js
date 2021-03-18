@@ -1,9 +1,35 @@
-export default function digitalClock(clock, btnStart, btnStop) {
+export function digitalClock(clock, btnStart, btnStop) {
   if(typeof btnStart !== "string") return;
   if(typeof btnStop !== "string") return;
+
+  const d = document;
+  console.log(btnStop)
+  console.log(btnStart)
+  //Para no tener problemas con el scope, se inicializa el timing que es donde guardaremos el intervalo  afuera del event listener
+  let timingInterval;
+  d.addEventListener("click", ev => {
+    if(ev.target.matches(btnStart)){
+      timingInterval = setInterval(() => {
+        let timeNode = d.createTextNode(`${new Date().toLocaleTimeString()}\n`);
+        d.querySelector(clock).appendChild(timeNode);  
+        setTimeout(() => 
+        d.querySelector(clock).removeChild(timeNode)
+        ,1008);     
+      }, 1010);
+      
+      ev.target.disabled = true;
+      d.querySelector(btnStop).disabled = false;
+    };
+    
+    if(ev.target.matches(btnStop)){
+      clearInterval(timingInterval);
+      ev.target.disabled = true
+      d.querySelector(btnStart).disabled = false;
+    };
+  });
 }
 
-export default function alarm(btnAlarm) {
+export function alarm(btnAlarm) {
   console.log("alarm")
 }
 

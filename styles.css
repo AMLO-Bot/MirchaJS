@@ -119,6 +119,7 @@ img {
 /* Reloj */
 .clock {
     margin: 10px 0px;
+    height: 30px;
     font-size: 2.0rem;
     font-weight: bold;
 }

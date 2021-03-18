@@ -1,9 +1,5 @@
 import {digitalClock, alarm} from "./clock.js";
-
 import hamburgerMenu from "./hamburgerMenu.js";
-
-
-
 
 
 const d = document;
