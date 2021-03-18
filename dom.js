@@ -7,7 +7,7 @@ const d = document;
 d.addEventListener("DOMContentLoaded", ev => {
   hamburgerMenu(".hamburger-btn", ".hamburger-menu");
   digitalClock(".clock",".btns--start",".btns--stop");
-  alarm();
+  alarm("#alarm",".btns--alarm-on",".btns--alarm-off");
   // clockControls(".clock",".btns--start",".btns--stop","btns--alarm-on","btns--alarm-off");
 });
 

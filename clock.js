@@ -26,12 +26,35 @@ export function digitalClock(clock, btnStart, btnStop) {
       ev.target.disabled = true
       d.querySelector(btnStart).disabled = false;
     };
+
+    
   });
 }
 
-export function alarm(btnAlarm) {
-  console.log("alarm")
+export function alarm(alarm,btnAlarmOn,btnAlarmOff) {
+  const d = document;
+  d.addEventListener("click", ev => {
+    if(ev.target.matches(btnAlarmOn)){
+      console.log("EV")
+      d.querySelector(alarm).loop = true;
+      console.log(d.querySelector(alarm).loop)
+      d.querySelector(alarm).play();
+      
+      ev.target.disabled = true;
+      d.querySelector(btnAlarmOff).disabled = false;
+    };
+
+    if(ev.target.matches(btnAlarmOff)){
+      console.log("EV5")
+      d.querySelector(alarm).pause();
+      d.querySelector(alarm).currentTime = 0;
+
+      ev.target.disabled = true;
+      d.querySelector(btnAlarmOn).disabled = false;
+    };
+  })
 }
+
 
 //Es un desastre, no te rindas, ya tienes una pista, sigue intentandolo, refactor y sigue
 //Disable button to avoid overload in dom, audio tag to set alarm, use temporizer to build clock
