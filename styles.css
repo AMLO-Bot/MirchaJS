@@ -50,7 +50,7 @@ body{
 }
 
 h1,
-h2 {
+h2{
     width: 100%;
     text-align: center;
     line-height: 75px;
@@ -68,6 +68,8 @@ h2 {
 h2 {
     font-size: 2.0rem;
 }
+h3{font-size: 1.8rem;
+    margin: 10px 0px;}
 
 /* Las imagenes ocuparan todo el ancho de los contenedores */
 img {
@@ -88,20 +90,17 @@ img {
     transform: translate(-100%,0);
     
 }
-
 .hamburger-menu nav{
     display: flex;
     flex-flow: wrap row;
     align-items: center;
 }
- 
 .hamburger-menu li {
     width: 100vw;
     font-size: 2.6rem;
     text-align: center;
     list-style: none;
 }
-
 .hamburger-menu a {
     display: block;
     height: 90px;
@@ -115,6 +114,16 @@ img {
     font-weight: bold;
     color: var(--sec-color);
     background-color: var(--main-modal-color);
+}
+
+/* Reloj */
+.clock {
+    margin: 10px 0px;
+    font-size: 2.0rem;
+    font-weight: bold;
+}
+.clock__btns{
+    margin: 10px 0px;
 }
 
 /* Utilities */
@@ -132,11 +141,9 @@ img {
     cursor: pointer;
     background-color: var(--main-color);
 }
-
 .is-displayed{
     transform: translate(0,0);  
 }
-
 /* Hmaburger Menu */
 .hamburger {
 transition-property: opacity, filter;
@@ -183,9 +190,7 @@ margin-top: -2px; }
 .hamburger-inner::after {
     bottom: -10px; }
     
-/*
-Squeeze
-*/
+/*Squeeze*/
 .hamburger--squeeze .hamburger-inner {
 transition-duration: 0.075s;
 transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }

@@ -1,11 +1,19 @@
+import {digitalClock, alarm} from "./clock.js";
+
 import hamburgerMenu from "./hamburgerMenu.js";
-import clock from "./clock.js";
+
+
+
+
 
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
 d.addEventListener("DOMContentLoaded", ev => {
   hamburgerMenu(".hamburger-btn", ".hamburger-menu");
-})
+  digitalClock(".clock",".btns--start",".btns--stop");
+  alarm();
+  // clockControls(".clock",".btns--start",".btns--stop","btns--alarm-on","btns--alarm-off");
+});
 
 
 

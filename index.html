@@ -17,8 +17,20 @@
 
 <main>
   <!-- Trata de siempre usar clases para mantener un poco de especificidad en vez de aplicar estilos directamente con el nombre de la etiqueta -->
-  <section >
-    <h2 id="seccion1" class="section">Sección 1</h2>
+  <section id="seccion1" class="section">
+    <h2 >Sección 1</h2>
+    <div class="wrapper__clock">
+      <h3>Reloj Digital y Alarma Sonora</h3>
+      <p class="clock">12:45 PM</p>
+      <div class="clock__btns">
+        <button class="btns--start">Iniciar Reloj</button>
+        <button class="btns--stop">Stop Reloj</button>
+        <button class="btns--alarm-on">Sonar Alarma</button>
+        <button class="btns--alarm-off">Off Alarma</button>
+      </div>
+      <audio src="./alarm.mp3" >
+      </audio>
+    </div>
   </section>
   <section id="seccion2" class="section">
     <h2 >Sección 2</h2>
@@ -51,6 +63,7 @@
     <span class="hamburger-inner"></span>
   </span>
 </button>
+
 <!-- Coloca el tipo de script para que los clasifique correctamente el navegadorf -->
 <script src="dom.js" type="module"></script>
 </body>
