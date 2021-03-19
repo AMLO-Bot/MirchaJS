@@ -9,9 +9,9 @@ d.addEventListener("DOMContentLoaded", ev => {
   hamburgerMenu(".hamburger-btn", ".hamburger-menu");
   digitalClock(".clock",".btns--start",".btns--stop");
   alarm("./assets/alarm.mp3",".btns--alarm-on",".btns--alarm-off");
-  countdown(".countdown");
+  countdown(".countdown","1995,11,17,3,24,0");
 });
-
+// cumpleanos = new Date(1995,11,17,3,24,0);
 d.addEventListener("keydown", ev =>{
   ball(ev, ".ball", ".playground");
   notify(ev);
