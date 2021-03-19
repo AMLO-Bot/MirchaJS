@@ -1,6 +1,6 @@
 const d = document;
 //ARROW KEYS Codes
-const keyCodes = ["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"];
+const keyCodes = ["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"];
 
 export function notify(ev) {
   if(ev.code === "KeyQ" && ev.ctrlKey || ev.code === "KeyQ" && ev.altKey){
@@ -8,30 +8,40 @@ export function notify(ev) {
   };
 };
 
-export function ball (ev, ball){
-  const $ball = d.querySelector(ball);
-  let x = 0,
-  y = 0;
-  console.log(ev.keyCode)
+
+let x = 0,
+y = 0;
+export function ball (ev, ball, stage){
+  const $ball = d.querySelector(ball),
+  $stage = d.querySelector(stage);
+  const stageStyles = window.getComputedStyle($stage);
+
   //Stop scrolling with up and down
   if(keyCodes.indexOf(ev.code) > -1) {
     ev.preventDefault();
   };
   
-  switch (ev.keyCode) {
-    case value:
-      
+  //Trigger movement on arrow keys
+  switch (ev.code) {
+    case "ArrowUp": 
+      y--
       break;
-  
+    case "ArrowDown":
+      // move("down");
+      y++
+      break;
+    case "ArrowLeft":
+      // move("left");
+      x--
+      break;
+    case "ArrowRight":
+      // move("right");
+      x++
+      break;
     default:
       break;
   }
-  
-  if(ev.code === "ArrowUp"){
-    y+=1;
-    console.log(y)
-    $ball.style.top = `${y}%`
-  };
-
-  
+  //Apply movement with css
+  // stageStyles.getPropertyValue
+  $ball.style.transform = `translate(${x*5}px, ${y*5}px)`;
 };

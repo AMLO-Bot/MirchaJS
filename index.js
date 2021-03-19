@@ -12,7 +12,7 @@ d.addEventListener("DOMContentLoaded", ev => {
 });
 
 d.addEventListener("keydown", ev =>{
-  ball(ev, "#ball");
+  ball(ev, ".ball", ".playground");
   notify(ev);
 })
 
