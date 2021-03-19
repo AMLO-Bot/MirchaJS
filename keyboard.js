@@ -16,26 +16,32 @@ export function ball (ev, ball, stage){
   $stage = d.querySelector(stage),
   limits = $stage.getBoundingClientRect(),
   limitBall = $ball.getBoundingClientRect();
-
-  //Stop scrolling with up and down
-  if(keyCodes.indexOf(ev.code) > -1) {
-    ev.preventDefault();
-  };
   
   //Trigger movement on arrow keys, if statement to check collision
   switch (ev.code) {
     case "ArrowUp": 
-      if ( limitBall.top > limits.top) y--;
+      if ( limitBall.top > limits.top){
+        ev.preventDefault();
+        y--;
+      };
       break;
     case "ArrowDown":
-      if (limitBall.bottom < limits.bottom) y++;
+      if (limitBall.bottom < limits.bottom){
+        ev.preventDefault();
+        y++;
+      };
       break;
     case "ArrowLeft":
-      if (limitBall.left > limits.left) x--;
+      if (limitBall.left > limits.left){
+        ev.preventDefault();
+        x--;
+      };
       break;
     case "ArrowRight":
-      if (limitBall.right < limits.right) x++;
-      break;
+      if (limitBall.right < limits.right){
+        ev.preventDefault();
+        x++;
+      };
     default:
       break;
   }
