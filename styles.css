@@ -142,6 +142,15 @@ img {
     border-radius: 50%;
     background-color: var(--main-color);
 }
+/* Countdown */
+.countdown{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    height: 5vh;   
+}
+
 /* Utilities */
 /* Hide Element */
 .hamburger-btn {
