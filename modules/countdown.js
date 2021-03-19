@@ -3,14 +3,18 @@ export function countdown(countdown,bdDate,bdMsg){
   //Starts as soon as dom ready
   //give a prize when count over
   const d = document,
-  $countdown = d.querySelector(countdown);
+  $countdown = d.querySelector(countdown),
+  actualTime = new Date(),
+  bdTime = new Date(bdDate);
+  const totalTime =actualTime.getTime() - bdTime.getTime();
+  //THIS IS BS
+  let timeMonth = Math.abs(actualTime.getMonth() - bdTime.getMonth()),
+  timeDay = Math.abs(actualTime.getDate() - bdTime.getDate()) + timeMonth*31,
+  timeHr = Math.abs(actualTime.getHours() - bdTime.getHours()),
+  timeMin = Math.abs(actualTime.getMinutes() - bdTime.getMinutes()),
+  timeSec = Math.abs(actualTime.getSeconds() - bdTime.getSeconds());
+  console.log(totalTime);
 
-  const date = new Date();
-  let timeDay = 1,//date.getDay(),
-  timeHr = 0,//date.getHours(),
-  timeMin = 0,//date.getMinutes(),
-  timeSec = 1;//date.getSeconds();
-  console.log(date)
   const time = setInterval(() => {
     //Check time and reset Sec,Min,Hr,Days if needed
     if(timeSec < 0){

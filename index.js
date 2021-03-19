@@ -9,7 +9,7 @@ d.addEventListener("DOMContentLoaded", ev => {
   hamburgerMenu(".hamburger-btn", ".hamburger-menu");
   digitalClock(".clock",".btns--start",".btns--stop");
   alarm("./assets/alarm.mp3",".btns--alarm-on",".btns--alarm-off");
-  countdown(".countdown","1995,11,17,3,24,0","FELIZ CUMPLEAÑOS !!!! 🎈✨🎉🎊");
+  countdown(".countdown",'December 21, 1995 03:24:00',"FELIZ CUMPLEAÑOS !!!! 🎈✨🎉🎊");
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 d.addEventListener("keydown", ev =>{
