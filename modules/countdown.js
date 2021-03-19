@@ -1,4 +1,4 @@
-export function countdown(countdown,bdDate){
+export function countdown(countdown,bdDate,bdMsg){
   //Countdown Days Hours Minutes Seconds
   //Starts as soon as dom ready
   //give a prize when count over
@@ -15,12 +15,12 @@ export function countdown(countdown,bdDate){
     //Check time and reset Sec,Min,Hr,Days if needed
     if(timeSec < 0){
       timeMin--;
-      timeSec = 3;
+      timeSec = 1;
     };
     
     if(timeMin < 0){
       timeHr--
-      timeMin = 4;
+      timeMin = 1;
     };
     
     if(timeHr < 0){
@@ -35,7 +35,7 @@ export function countdown(countdown,bdDate){
     if(timeDay < 0 ){
       clearInterval(time);
       $countdown.classList.add("countdown--ended");
-      $countdown.textContent = "FELIZ CUMPLEAÑOS !!!! 🎈✨🎉🎊"
+      $countdown.textContent = bdMsg;
       timeDay = 0;
       timeHr = 0;
       timeMin = 0;
