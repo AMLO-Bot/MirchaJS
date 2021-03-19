@@ -13,8 +13,9 @@ let x = 0,
 y = 0;
 export function ball (ev, ball, stage){
   const $ball = d.querySelector(ball),
-  $stage = d.querySelector(stage);
-  const stageStyles = window.getComputedStyle($stage);
+  $stage = d.querySelector(stage),
+  limits = $stage.getBoundingClientRect(),
+  limitBall = $ball.getBoundingClientRect();
 
   //Stop scrolling with up and down
   if(keyCodes.indexOf(ev.code) > -1) {
@@ -24,24 +25,27 @@ export function ball (ev, ball, stage){
   //Trigger movement on arrow keys
   switch (ev.code) {
     case "ArrowUp": 
-      y--
+      if ( limitBall.y > limits.y) y--;
       break;
     case "ArrowDown":
-      // move("down");
       y++
       break;
     case "ArrowLeft":
-      // move("left");
       x--
       break;
     case "ArrowRight":
-      // move("right");
       x++
       break;
     default:
       break;
   }
-  //Apply movement with css
-  // stageStyles.getPropertyValue
+          
+  //Detect collision with stage limits
+   //Top limit
+  if (limits.y + limits.height < limitBall.y + limitBall.height){y--}; //bottom limit
+  if (limits.x > limitBall.x){x++}; //left limit
+  if (limits.x + limits.width < limitBall.x + limitBall.width){x--}; //right limit
+  
+  //Apply ball transalation with css
   $ball.style.transform = `translate(${x*5}px, ${y*5}px)`;
 };
