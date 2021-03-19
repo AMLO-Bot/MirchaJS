@@ -1,7 +1,7 @@
 import hamburgerMenu from "./modules/hamburgerMenu.js";
 import {digitalClock, alarm} from "./modules/clock.js";
-import { ball, notify} from "./modules/keyboard.js";
-
+import {ball, notify} from "./modules/keyboard.js";
+import {countdown} from "./modules/countdown.js"
 
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
@@ -9,6 +9,7 @@ d.addEventListener("DOMContentLoaded", ev => {
   hamburgerMenu(".hamburger-btn", ".hamburger-menu");
   digitalClock(".clock",".btns--start",".btns--stop");
   alarm("./assets/alarm.mp3",".btns--alarm-on",".btns--alarm-off");
+  countdown();
 });
 
 d.addEventListener("keydown", ev =>{
