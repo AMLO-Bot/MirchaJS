@@ -34,7 +34,6 @@ export function digitalClock(clock, btnStart, btnStop) {
 
 //Vamos a implementar de otra manera
 export function alarm(alarm,btnAlarmOn,btnAlarmOff) {
-  let alarmaTempo;
   const $alarm = d.createElement("audio");
 
   d.addEventListener("click", ev => {
@@ -49,8 +48,8 @@ export function alarm(alarm,btnAlarmOn,btnAlarmOff) {
     };
 
     if(ev.target.matches(btnAlarmOff)){
-      d.querySelector(alarm).pause();
-      d.querySelector(alarm).currentTime = 0;
+      $alarm.pause();
+      $alarm.currentTime = 0;
 
       ev.target.disabled = true;
       d.querySelector(btnAlarmOn).disabled = false;
