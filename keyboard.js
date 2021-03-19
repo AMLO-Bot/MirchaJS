@@ -22,29 +22,23 @@ export function ball (ev, ball, stage){
     ev.preventDefault();
   };
   
-  //Trigger movement on arrow keys
+  //Trigger movement on arrow keys, if statement to check collision
   switch (ev.code) {
     case "ArrowUp": 
-      if ( limitBall.y > limits.y) y--;
+      if ( limitBall.top > limits.top) y--;
       break;
     case "ArrowDown":
-      y++
+      if (limitBall.bottom < limits.bottom) y++;
       break;
     case "ArrowLeft":
-      x--
+      if (limitBall.left > limits.left) x--;
       break;
     case "ArrowRight":
-      x++
+      if (limitBall.right < limits.right) x++;
       break;
     default:
       break;
   }
-          
-  //Detect collision with stage limits
-   //Top limit
-  if (limits.y + limits.height < limitBall.y + limitBall.height){y--}; //bottom limit
-  if (limits.x > limitBall.x){x++}; //left limit
-  if (limits.x + limits.width < limitBall.x + limitBall.width){x--}; //right limit
   
   //Apply ball transalation with css
   $ball.style.transform = `translate(${x*5}px, ${y*5}px)`;
