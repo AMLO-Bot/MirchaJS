@@ -12,7 +12,7 @@ d.addEventListener("DOMContentLoaded", ev => {
   digitalClock(".clock",".btns--start",".btns--stop");
   alarm("./assets/alarm.mp3",".btns--alarm-on",".btns--alarm-off");
   countdown(".countdown",'December 21, 1995 03:24:00',"FELIZ CUMPLEAÑOS !!!! 🎈✨🎉🎊");
-  toTop(".to-top-btn")
+  toTop(".to-top-btn","to-top-btn--transition")
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 d.addEventListener("keydown", ev =>{

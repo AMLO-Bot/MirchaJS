@@ -173,10 +173,14 @@ img {
 .to-top-btn{
     padding: 15px;
     left: calc(74vw - 7.4rem);
-    transition: opacity 2s ease-in-out;
+    transition: opacity 0.2s 0.1s ease-in-out;
+    opacity: 0%;
+    cursor: default;
 }
-.to-top-btn--click{
-    opacity: 0;
+
+.to-top-btn--transition{
+    opacity: 100%;
+    cursor: pointer;
 }
 
 /* Utilities */
