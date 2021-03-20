@@ -36,7 +36,9 @@ body{
     justify-content: center;
     align-items: center;
     overflow-x: hidden;    
+    
     background-color: var(--bg-color);
+    transition: all .3s ease-in;
 }
 
 /* HEADER */
@@ -45,7 +47,7 @@ body{
     top: 0;
     width: 100vw;
     padding: 1.6rem;
-    color: -var(--sec-color);
+    color: var(--sec-color);
     z-index: 99;
     background-color: var(--main-color);
 }
@@ -113,7 +115,6 @@ img {
 }
 .hamburger-menu a:hover{
     font-weight: bold;
-    color: var(--sec-color);
     background-color: var(--main-modal-color);
 }
 
@@ -134,7 +135,7 @@ img {
     min-height: 50vh;
     background-color: var(--sec-color);
 }
-#ball{
+.ball{
     
     margin:auto;
     width: 3.5rem;
@@ -167,6 +168,7 @@ img {
     border-radius: 50%;
     cursor: pointer;
     background-color: var(--main-color);
+    transition: all .2s ease-in;
 }
 
 /* To Top Btn */
@@ -180,7 +182,6 @@ img {
 }
 .to-top-btn:hover{
     background-color: var(--sec-color);
-    color: var(--main-color);
 }
 .to-top-btn svg:hover{
     fill: var(--main-color);
@@ -193,11 +194,24 @@ img {
 
 /* Dark Mode */
 .dark-mode-btn{
-    left: calc(74vw - 50.4rem);
+    left: 13vw;
+    transition: all .2 ease-in;
+    font-size: 3.0rem;
+    /* content: 🌙; */
+}
+.dark-mode-btn:hover{
+    background-color: var(--sec-color);
+    
 }
 .dark-mode--active{
     background-color: var(--sec-color);
+    fill: var(--sec-color);
+    color: var(--main-color);
+}
 
+
+.pg-dark-mode{
+    background-color: var(--main-color);
 }
 
 /* Utilities */

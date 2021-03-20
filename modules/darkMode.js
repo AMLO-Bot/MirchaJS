@@ -1,15 +1,23 @@
-export function darkMode(darkBtnSelector, darkActiveClass) {
+export function darkMode(darkBtnSelector, darkActiveClass,darkPGClass,ballSelector,pgSelector) {
   
   const d = document,
-  $darkBtn = d.querySelector(darkBtnSelector);
+  $darkBtn = d.querySelector(darkBtnSelector),
+  $ball = d.querySelector(ballSelector),
+  $pg = d.querySelector(pgSelector);
   
   d.addEventListener("click", ev => {
-    console.log(ev.target);
-    console.log(ev.target.matches(`${darkBtnSelector} *`) )
-    console.log($darkBtn.classList);
     if (ev.target.matches(darkBtnSelector) || ev.target.matches(`${darkBtnSelector} *`)) {
-      $darkBtn.classList.add(darkActiveClass);
-      console.log($darkBtn.classList);
+      $darkBtn.classList.toggle(darkActiveClass);
+      d.body.classList.toggle(darkActiveClass);
+      $ball.classList.toggle(darkActiveClass);
+      $pg.classList.toggle(darkPGClass);
+      
+      ($darkBtn.textContent === "🌙")
+        ? $darkBtn.style.content = "☀"
+        : $darkBtn.textContent = "🌙";
+
+      console.log($darkBtn.textContent) 
+      console.log($darkBtn.style.content);
     };
   });
 };
