@@ -191,6 +191,15 @@ img {
     cursor: pointer;
 }
 
+/* Dark Mode */
+.dark-mode-btn{
+    left: calc(74vw - 50.4rem);
+}
+.dark-mode--active{
+    background-color: var(--sec-color);
+
+}
+
 /* Utilities */
 /* Hide Element */
 .is-displayed{
