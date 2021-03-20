@@ -11,11 +11,8 @@ export function digitalClock(clock, btnStart, btnStop) {
   d.addEventListener("click", ev => {
     if(ev.target.matches(btnStart)){
       timingInterval = setInterval(() => {
-        let timeNode = d.createTextNode(`${new Date().toLocaleTimeString()}\n`);
-        d.querySelector(clock).appendChild(timeNode);  
-        setTimeout(() => 
-        d.querySelector(clock).removeChild(timeNode)
-        ,1008);     
+        let timeText = `${new Date().toLocaleTimeString()}`;
+        d.querySelector(clock).textContent = timeText;     
       }, 1010);
       
       ev.target.disabled = true;
