@@ -171,15 +171,23 @@ img {
 
 /* To Top Btn */
 .to-top-btn{
+    visibility: hidden;
     padding: 15px;
     left: calc(74vw - 7.4rem);
-    transition: opacity 0.2s 0.1s ease-in-out;
+    transition: all 0.2s ease-in-out;
     opacity: 0%;
     cursor: default;
 }
-
+.to-top-btn:hover{
+    background-color: var(--sec-color);
+    color: var(--main-color);
+}
+.to-top-btn svg:hover{
+    fill: var(--main-color);
+}
 .to-top-btn--transition{
     opacity: 100%;
+    visibility: visible;
     cursor: pointer;
 }
 
