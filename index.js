@@ -2,6 +2,8 @@ import hamburgerMenu from "./modules/hamburgerMenu.js";
 import {digitalClock, alarm} from "./modules/clock.js";
 import {ball, notify} from "./modules/keyboard.js";
 import {countdown} from "./modules/countdown.js"
+import { toTop } from "./modules/toTop.js";
+
 
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
@@ -10,6 +12,7 @@ d.addEventListener("DOMContentLoaded", ev => {
   digitalClock(".clock",".btns--start",".btns--stop");
   alarm("./assets/alarm.mp3",".btns--alarm-on",".btns--alarm-off");
   countdown(".countdown",'December 21, 1995 03:24:00',"FELIZ CUMPLEAÑOS !!!! 🎈✨🎉🎊");
+  toTop(".to-top-btn")
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 d.addEventListener("keydown", ev =>{

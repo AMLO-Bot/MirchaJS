@@ -157,22 +157,30 @@ img {
     font-size: 2.5rem;
     transform: rotate(360deg);
 }
-
-/* Utilities */
-/* Hide Element */
-.hamburger-btn {
-    display: flex;
+/* Hamburger Menu */
+.btn, .hamburger-btn{
     position: fixed;
     left: 74vw;
     bottom:2vw;
     width: 6.4rem;
     height: 6.4rem;
-    justify-content: center;
-    align-items: center;
     border-radius: 50%;
     cursor: pointer;
     background-color: var(--main-color);
 }
+
+/* To Top Btn */
+.to-top-btn{
+    padding: 15px;
+    left: calc(74vw - 7.4rem);
+    transition: opacity 2s ease-in-out;
+}
+.to-top-btn--click{
+    opacity: 0;
+}
+
+/* Utilities */
+/* Hide Element */
 .is-displayed{
     transform: translate(0,0);  
 }
