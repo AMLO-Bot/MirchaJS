@@ -203,14 +203,14 @@ img {
     background-color: var(--sec-color);
     
 }
-.dark-mode--active{
+.dark-mode{
     background-color: var(--sec-color);
     fill: var(--sec-color);
     color: var(--main-color);
 }
 
 
-.pg-dark-mode{
+.dark-mode-alt{
     background-color: var(--main-color);
 }
 

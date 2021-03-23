@@ -13,7 +13,7 @@ export function countdown(countdown,bdDate,bdMsg){
   timeHr = Math.abs(actualTime.getHours() - bdTime.getHours()),
   timeMin = Math.abs(actualTime.getMinutes() - bdTime.getMinutes()),
   timeSec = Math.abs(actualTime.getSeconds() - bdTime.getSeconds());
-  console.log(totalTime);
+ 
 
   const time = setInterval(() => {
     //Check time and reset Sec,Min,Hr,Days if needed
