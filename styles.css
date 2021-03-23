@@ -60,6 +60,10 @@ h2{
     font-size: 2.6rem;
 }
 .section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap column;
     padding: 3.2rem;
     padding-top: 10.4rem;
     width: 100vw;
@@ -71,8 +75,13 @@ h2{
 h2 {
     font-size: 2.0rem;
 }
-h3{font-size: 1.8rem;
-    margin: 20px 0px;}
+h3 {font-size: 1.8rem;
+    width: 100%;
+    /* margin: 20px 0px; */
+}
+iframe {
+    margin: 20px 0px;
+}
 
 /* Las imagenes ocuparan todo el ancho de los contenedores */
 img {
