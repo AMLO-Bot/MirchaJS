@@ -1,3 +1,4 @@
+//Esta implementacion se puede mejorar, en vez de traer todos los elementos que necesites cambiar mejor utilizamos un atributo custom en html para indicar que elementos van a cambiar de color y ese atributo es lo que pasamos a la funcion como parametro
 export function darkMode(darkBtnSelector, darkActiveClass,darkPGClass,ballSelector,pgSelector) {
   
   const d = document,
