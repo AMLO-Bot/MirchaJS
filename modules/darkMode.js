@@ -12,33 +12,34 @@ export function darkMode(darkBtnSelector, classDark, classDarkAlt) {
   $darkBtn.textContent = $darkBtn.textContent.trim();
 
   //Aplica la classDark, que tiene los estilos del darkMode, a todos los elementos fetcheados
-  function addDarkMode() {
+  const addDarkMode = () => {
     $selectorsDark.forEach(el => el.classList.add(classDark));
     $selectorsDarkAlt.forEach(el => el.classList.add(classDarkAlt));
     $darkBtn.textContent = sun;
+    localStorage.setItem("isDarkMode",true);
   };
-  function removeDarkMode() {
+  const addLightMode = () => {
     $selectorsDark.forEach(el => el.classList.remove(classDark));
     $selectorsDarkAlt.forEach(el => el.classList.remove(classDarkAlt));
     $darkBtn.textContent = moon;
+    localStorage.setItem("isDarkMode",false);
   };
 
-  //Check if darkMode had been applied before
-  if(localStorage.getItem("isDarkMode") === "true"){
-    addDarkMode();
-  }
-  
   //Toggle darkMode btn 
-  d.addEventListener("click", ev => {
-    
+  d.addEventListener("click", ev => { 
     if (ev.target.matches(darkBtnSelector)) {
       if($darkBtn.textContent === moon){
         addDarkMode();
-        localStorage.setItem("isDarkMode",true);
       }else{
-        removeDarkMode();
-        localStorage.setItem("isDarkMode",false);
+        addLightMode();
       };
     };
+  });
+  
+  //Check wich Mode had been applied before and load layout accordingly
+  d.addEventListener("DOMContentLoaded", ev => { 
+    if(localStorage.getItem("isDarkMode") === null) addLightMode();
+    if(localStorage.getItem("isDarkMode") === "true") addDarkMode();
+    if(localStorage.getItem("isDarkMode") === "false") addLightMode();
   });
 };

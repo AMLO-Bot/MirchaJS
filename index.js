@@ -10,7 +10,6 @@ const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
 d.addEventListener("DOMContentLoaded", ev => {
   hamburgerMenu(".hamburger-btn", ".hamburger-menu");
-  darkMode(".dark-mode-btn","dark-mode","dark-mode-alt");
   digitalClock(".clock",".btns--start",".btns--stop");
   alarm("./assets/alarm.mp3",".btns--alarm-on",".btns--alarm-off");
   countdown(".countdown",'December 21, 1995 03:24:00',"FELIZ CUMPLEAÑOS !!!! 🎈✨🎉🎊");
@@ -21,7 +20,8 @@ d.addEventListener("keydown", ev =>{
   ball(ev, ".ball", ".playground");
   notify(ev);
 })
-
+//
+darkMode(".dark-mode-btn","dark-mode","dark-mode-alt");
 
 
 
