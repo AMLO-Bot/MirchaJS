@@ -27,13 +27,22 @@ export function responsiveJS(links, iframes,mobileWidth = 400){
     }; 
   };
 
-  //Pick which element will be loaded depending of display size => computing power of device
-  if (window.matchMedia(`(min-width: ${mobileWidth}px)`).matches) {
-    mobileMultimedia();
-  } else { 
-    tabletMultimedia();
-  };
+  //Pick when DOMCOntentLoaded which element will be loaded depending of display size => computing power of device
+  const pickLayout = () => {;
+    if (window.matchMedia(`(min-width: ${mobileWidth}px)`).matches) {
+      mobileMultimedia();
+    } else { 
+      tabletMultimedia();
+    };
+  }
+  pickLayout();
 
-  
+  //
+  // window.addEventListener("resize", (ev) => {
+  //   console.log(ev.target.innerWidth)
+  //   pickLayout();
+  // });
+
+
 
 };
