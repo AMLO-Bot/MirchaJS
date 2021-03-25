@@ -7,6 +7,7 @@ import { darkMode } from "./modules/darkMode.js";
 import { responsiveJS } from "./modules/responsiveJS.js";
 import { respTest } from "./modules/respTest.js";
 import userDeviceInfo from "./modules/userAgent.js";
+import { connectionCheck } from "./modules/connectionCheck.js";
 
 
 // const links = {
@@ -36,7 +37,9 @@ d.addEventListener("DOMContentLoaded", ev => {
     {mapaDesk: `<iframe width="560" height="315" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Les%20Rambles,%201%20Barcelona,%20Spain+(Mi%20nombre%20de%20egocios)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>`},
     `(max-width: 1023px)`);
   respTest(".close-win");
-  userDeviceInfo("user-device")
+  userDeviceInfo("user-device");
+  connectionCheck(".banner","banner--online","banner--offline");
+
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 

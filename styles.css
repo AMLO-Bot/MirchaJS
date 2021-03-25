@@ -11,6 +11,8 @@
     --sec-modal-color: rgba(34, 34, 34, 0.85);
     --bg-color: rgb(200, 234, 245);
     --container-width: 1200px;
+    --offline: red;
+    --online: green;
 }
 
 /* RESETEO */
@@ -46,10 +48,26 @@ body{
     position: sticky;
     top: 0;
     width: 100vw;
-    padding: 1.6rem;
+    height: 15vh;
     color: var(--sec-color);
-    z-index: 99;
     background-color: var(--main-color);
+}
+.banner {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.3rem;    
+}
+.banner--offline {
+    visibility: visible;
+    background-color: var(--offline);
+}
+.banner--online {
+    visibility: visible;
+    background-color: var(--online);
 }
 
 h1,
