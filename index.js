@@ -8,16 +8,7 @@ import { responsiveJS } from "./modules/responsiveJS.js";
 import { respTest } from "./modules/respTest.js";
 import userDeviceInfo from "./modules/userAgent.js";
 import { connectionCheck } from "./modules/connectionCheck.js";
-
-
-// const links = {
-//   cumbion: "https://www.youtube.com/watch?v=tWwWoDFoubw&list=PLQlR3Vw0ooxcNUhsgaid-gYu_YKNQRXHa&index=15",
-//   mapa: "https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Les%20Rambles,%201%20Barcelona,%20Spain+(Mi%20nombre%20de%20egocios)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed",
-// };
-// const iframes ={
-//   videoCumbion:`<iframe width="560" height="315" src=\"https://www.youtube.com/embed/bdYks30p1FE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>`,
-//   mapa: `<iframe width="560" height="315" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=\"https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Les%20Rambles,%201%20Barcelona,%20Spain+(Mi%20nombre%20de%20egocios)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed\"></iframe>`,
-// }
+import {webCam} from "./modules/webCam.js"
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
 d.addEventListener("DOMContentLoaded", ev => {
@@ -39,7 +30,10 @@ d.addEventListener("DOMContentLoaded", ev => {
   respTest(".close-win");
   userDeviceInfo("user-device");
   connectionCheck(".banner","banner--online","banner--offline");
-
+  webCam("video",{
+    audio: true, 
+    video: {facingMode: "user"}
+  });
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 
