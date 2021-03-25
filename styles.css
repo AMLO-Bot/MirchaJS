@@ -11,8 +11,8 @@
     --sec-modal-color: rgba(34, 34, 34, 0.85);
     --bg-color: rgb(200, 234, 245);
     --container-width: 1200px;
-    --offline: red;
-    --online: green;
+    --offline: #f7172c;
+    --online: #14bd14;
 }
 
 /* RESETEO */
@@ -59,6 +59,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px 15px;
     font-size: 2.3rem;    
 }
 .banner--offline {
