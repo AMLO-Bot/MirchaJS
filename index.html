@@ -56,15 +56,19 @@
   <section id="seccion5" class="section">
     <h2>Sección 5</h2>
     <h3>Responsive Tester</h3>
-    <form action="">
-      <label for="url">Ingresa URL, empieza con https://</label>
-      <input class="input" id="url" name="url" type="url" size="30" required placeholder="https://example.com" pattern="https://+*" autocomplete="url">
-      <label for="width">Ingresa pixeles de ancho</label>
-      <input class="input" id="width" name="width" type="text" size="4" required placeholder="e.g 1366" pattern="[0-9]{1,4}">
-      <label for="height" >Ingresa pixeles de ancho</label>
-      <input class="input" id="height" name="height" type="text" size="4" required placeholder="e.g 768" pattern="[0-9]{1,4}">
-      <label for="try"></label>
-      <input class="input" type="submit" value="Try Resposiveness">
+    <form id="respTest" action="">
+      <label for="url">Ingresa URL, empieza con https://
+        <input class="input" id="url" name="url" type="url" size="30"  placeholder="https://example.com"  autocomplete="url">
+      </label>
+      <label for="width">Ingresa pixeles de ancho
+        <input class="input" id="width" name="width" type="text" size="4" required placeholder="e.g 1366" pattern="[0-9]{1,4}">
+      </label>
+      <label for="height" >Ingresa pixeles de ancho
+        <input class="input" id="height" name="height" type="text" size="4" required placeholder="e.g 768" pattern="[0-9]{1,4}">
+      </label>
+      <label for="try">
+        <input class="input" type="submit" value="Try Resposiveness">
+      </label>
     </form>
     <button class="close-win input">Cerrar</button>
   </section>
