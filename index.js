@@ -9,6 +9,7 @@ import { respTest } from "./modules/respTest.js";
 import userDeviceInfo from "./modules/userAgent.js";
 import { connectionCheck } from "./modules/connectionCheck.js";
 import {webCam} from "./modules/webCam.js"
+import geolocation from "./modules/gps.js";
 
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
@@ -35,6 +36,7 @@ d.addEventListener("DOMContentLoaded", ev => {
     audio: true, 
     video: {facingMode: "user"}
   });
+  geolocation("geo-btn", "map-link","status");
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 
@@ -45,45 +47,3 @@ d.addEventListener("keydown", ev =>{
 
 //
 darkMode(".dark-mode-btn","dark-mode","dark-mode-alt");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//SOLUCION POCHA, PA SALIR DEL PASO, no hay delegacion de eventos ni modularizacion para reusar componentes
-// const $hamburgerMenu = document.querySelector(".hamburger-menu"), 
-// $hamburgerBtn = document.querySelector(".hamburger::after");
-
-
-// const $hamburgerMenu = document.querySelector(".hamburger-menu");
-// const $hamburgerBtn = document.querySelector(".hamburger-btn");
-// const $menuItems = document.querySelectorAll("li")
-
-// //Toggle animation of $hamburgerBtn, and toggle display of menu section
-// const activeToggleMenu = () => {
-//   $hamburgerBtn.classList.toggle("is-active");
-//   $hamburgerMenu.classList.toggle("is-displayed");
-// };
-
-// $hamburgerBtn.addEventListener("click", () => {
-//   activeToggleMenu();
-// });
-
-// $menuItems.forEach(item => {
-//   item.addEventListener("click", () => {
-//     activeToggleMenu();
-//   });
-// });
