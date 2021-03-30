@@ -144,6 +144,7 @@ img {
     left: 0;
     height: 100vh;
     background-color: var(--sec-modal-color);
+    overflow-y: scroll;
     transition: transform 200ms ease-in;
     transform: translate(-100%,0);
     
