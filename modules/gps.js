@@ -2,8 +2,6 @@ const d = document,
 n = navigator;
 
 export default function geolocation(btnSelector, mapLink, status){
-  console.log("KJHKJH");
-  console.log(btnSelector);
   const $mapLink = d.getElementById(mapLink),
   $status = d.getElementById(status);
 
@@ -16,7 +14,7 @@ export default function geolocation(btnSelector, mapLink, status){
         const options = {
           enableHighAccuracy: true,
           timeout: 5000,
-          maximumAge: 0
+          maximumAge: 0 // Clear cache of position 
         };
         n.geolocation.getCurrentPosition(success, error, options);
       }

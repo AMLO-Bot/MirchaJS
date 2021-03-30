@@ -12,7 +12,6 @@ export function respTest(closeBtnClass){
   });
 
   d.addEventListener("click", ev => {
-    console.log(ev.target)
     if (ev.target.matches(closeBtnClass)) {
       if(winOpenedByForm){
         winOpenedByForm.close();

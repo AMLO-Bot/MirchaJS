@@ -10,6 +10,7 @@ import userDeviceInfo from "./modules/userAgent.js";
 import { connectionCheck } from "./modules/connectionCheck.js";
 import {webCam} from "./modules/webCam.js"
 import geolocation from "./modules/gps.js";
+import filter from "./modules/filter.js";
 
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
@@ -43,6 +44,9 @@ d.addEventListener("DOMContentLoaded", ev => {
 d.addEventListener("keydown", ev =>{
   ball(ev, ".ball", ".playground");
   notify(ev);
+})
+d.addEventListener("keyup", ev =>{
+  filter(ev, "filter", "search-tag","search-tag--isinvisible");
 })
 
 //

@@ -285,7 +285,20 @@ img {
 #geo-btn:hover{
     background-color: var(--main-color);
 }
-
+/* Filter */
+.search-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 1em;
+}
+.search-tag img{
+    display: block;
+}
+.search-tag--isinvisible{
+    display:none;
+}
 /* Utilities */
 /* Hide Element */
 .is-displayed{
