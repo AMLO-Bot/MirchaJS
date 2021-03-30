@@ -46,7 +46,7 @@ d.addEventListener("keydown", ev =>{
   notify(ev);
 })
 d.addEventListener("keyup", ev =>{
-  filter(ev, "filter", "search-tag","search-tag--isinvisible");
+  filter(ev, ".search-list", "filter", "search-tag","search-tag--isinvisible");
 })
 
 //
