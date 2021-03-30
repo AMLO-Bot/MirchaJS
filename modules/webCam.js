@@ -13,8 +13,7 @@ export function webCam(videoId, constraints) {
         $video.play();
       })
       .catch(() => {
-        $video.insertAdjacentText("beforebegin","WebCam Error, use of webcam might not be permitted by your browser")
-        alert("Mmes no quiere que lo espíen")
+        $video.insertAdjacentText("beforebegin","WebCam Error, use of webcam might not be permitted by your browser");
       });
   };
 };
