@@ -9,6 +9,7 @@ import { respTest } from "./modules/respTest.js";
 import userDeviceInfo from "./modules/userAgent.js";
 import { connectionCheck } from "./modules/connectionCheck.js";
 import {webCam} from "./modules/webCam.js"
+
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
 d.addEventListener("DOMContentLoaded", ev => {
