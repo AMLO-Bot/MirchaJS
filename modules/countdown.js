@@ -10,9 +10,9 @@ export function countdown(countdown,bdDate,bdMsg){
   //THIS IS BS
   let timeMonth = Math.abs(actualTime.getMonth() - bdTime.getMonth()),
   timeDay = Math.abs(actualTime.getDate() - bdTime.getDate()) + timeMonth*31,
-  timeHr = Math.abs(actualTime.getHours() - bdTime.getHours()),
+  timeHr = 0,//Math.abs(actualTime.getHours() - bdTime.getHours()),
   timeMin = Math.abs(actualTime.getMinutes() - bdTime.getMinutes()),
-  timeSec = Math.abs(actualTime.getSeconds() - bdTime.getSeconds());
+  timeSec = 1//Math.abs(actualTime.getSeconds() - bdTime.getSeconds());
  
 
   const time = setInterval(() => {

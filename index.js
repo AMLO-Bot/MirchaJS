@@ -17,7 +17,7 @@ d.addEventListener("DOMContentLoaded", ev => {
   hamburgerMenu(".hamburger-btn", ".hamburger-menu");
   digitalClock(".clock",".btns--start",".btns--stop");
   alarm("./assets/alarm.mp3",".btns--alarm-on",".btns--alarm-off");
-  countdown(".countdown",'December 21, 1995 03:24:00',"FELIZ CUMPLEAÑOS !!!! 🎈✨🎉🎊");
+  countdown(".countdown",'March 29, 1995 08:09:00',"FELIZ CUMPLEAÑOS !!!! 🎈✨🎉🎊");
   toTop(".to-top-btn","to-top-btn--transition");
   responsiveJS(
   "yt-video", 
