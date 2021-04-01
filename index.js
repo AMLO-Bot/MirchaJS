@@ -11,6 +11,7 @@ import { connectionCheck } from "./modules/connectionCheck.js";
 import {webCam} from "./modules/webCam.js"
 import geolocation from "./modules/gps.js";
 import filter from "./modules/filter.js";
+import giveaway from "./modules/giveaway.js";
 
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
@@ -38,6 +39,8 @@ d.addEventListener("DOMContentLoaded", ev => {
     video: {facingMode: "user"}
   });
   geolocation("geo-btn", "map-link","status");
+  giveaway(".giveaway-list","giveaway-start");
+  // giveaway(". die-list","die-start")
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 
