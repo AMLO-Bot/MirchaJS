@@ -40,7 +40,7 @@ d.addEventListener("DOMContentLoaded", ev => {
   });
   geolocation("geo-btn", "map-link","status");
   giveaway(".giveaway-list","giveaway-start");
-  // giveaway(". die-list","die-start")
+  
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 
