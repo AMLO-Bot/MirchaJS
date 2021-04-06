@@ -12,6 +12,7 @@ import {webCam} from "./modules/webCam.js"
 import geolocation from "./modules/gps.js";
 import filter from "./modules/filter.js";
 import giveaway from "./modules/giveaway.js";
+import { intersection } from "./modules/intersection.js";
 
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
@@ -40,7 +41,7 @@ d.addEventListener("DOMContentLoaded", ev => {
   });
   geolocation("geo-btn", "map-link","status");
   giveaway(".giveaway-list","giveaway-start");
-  
+  intersection(".section", ".hamburger-menu a","hamburger-menu-a--active");
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 
