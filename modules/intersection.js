@@ -1,7 +1,6 @@
 const d = document;
-export function intersection(sectionsClass, menuItemsSelector,activeClass) {
-  const $sectionsList = d.querySelectorAll(sectionsClass),
-  $menuItems = d.querySelectorAll(menuItemsSelector);
+export function intersection(sectionsClass,activeClass) {
+  const $sectionsList = d.querySelectorAll(sectionsClass)
   const options = {
     root:null,
     rootMargin: "-300px 0px",
@@ -14,17 +13,12 @@ export function intersection(sectionsClass, menuItemsSelector,activeClass) {
 
   function intersectionHandler(entries, observer) {
     entries.forEach(entry => {
-      console.log(entry)
-      console.log(entry.target)
-      console.log(entry.isIntersecting)
-      console.log(entry.target.id)
       if(entry.isIntersecting){
         d.querySelector(`a[href="#${entry.target.id}"]`).classList.add(activeClass);
       }
       else{
         d.querySelector(`a[href="#${entry.target.id}"]`).classList.remove(activeClass);
-      }
-      
+      }  
     });
   }
 }

@@ -13,6 +13,7 @@ import geolocation from "./modules/gps.js";
 import filter from "./modules/filter.js";
 import giveaway from "./modules/giveaway.js";
 import { intersection } from "./modules/intersection.js";
+import { smartVideo } from "./modules/smartVideo.js";
 
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
@@ -41,7 +42,8 @@ d.addEventListener("DOMContentLoaded", ev => {
   });
   geolocation("geo-btn", "map-link","status");
   giveaway(".giveaway-list","giveaway-start");
-  intersection(".section", ".hamburger-menu a","hamburger-menu-a--active");
+  intersection(".section","hamburger-menu-a--active");
+  smartVideo("smart-video");
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 
