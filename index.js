@@ -43,7 +43,7 @@ d.addEventListener("DOMContentLoaded", ev => {
   geolocation("geo-btn", "map-link","status");
   giveaway(".giveaway-list","giveaway-start");
   intersection(".section","hamburger-menu-a--active");
-  smartVideo("smart-video");
+  smartVideo("data-videoSmart");
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 
