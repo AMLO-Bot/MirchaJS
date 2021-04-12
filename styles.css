@@ -114,8 +114,8 @@ li {
 .input {
     width: 100%;
     height: 30px;
-    margin-bottom: 3px;
-    padding: 3px 10px 3px 10px;
+    margin-bottom: 1em;
+    padding: 1em;
     border: 0;
     border-bottom: solid 1px var(--main-color);
     border-radius: 10px;
@@ -313,6 +313,25 @@ img {
 /* Digital GiveAway */
 .giveaway-item a{
     pointer-events: none;
+}
+/* Validacion de Formularios */
+.comments {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    max-width: 500px;
+    margin: auto;
+    font-family: var(--main-font);
+}
+.comments-text {
+    height: 30vh;
+    font-family: var(--main-font);
+}
+.comments-submit {
+    width: 50vw !important;
+    max-width: 200px;
+    line-height: 5px;
 }
 /* Utilities */
 /* Hide Element */
