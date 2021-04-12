@@ -196,14 +196,19 @@
   </section> 
   <section id="seccion14" class="section">
     <h2>Validacion de Formularios<h2>
-    <h3>Envianos tus Comentarios !!</h3>
+    
     <form action="" id="comments" class="comments" autocomplete="on" >
-      <input type="text"  id="comments-name" class="comments-name input" placeholder="Pon tu Nombre">
-      <input type="email" id="comments-email" class="comments-email input" placeholder="Pon tu email">
-      <input type="text" id="comments-subject" class="comments-subject input" placeholder="Para que es tu mensaje?">
-      <textarea  id="comments-text" class="comments-text input" cols="30" rows="10" placeholder="Escribeme tu comentario"></textarea>
-      <input type="submit"  id="comments-submit" class="comments-submit input" value="Im Listening !!!">
+      <legend>Envianos tus Comentarios</legend>
+      <input type="text"  name="name" id="comments-name" class="comments-name input" placeholder="Pon tu Nombre">
+      <input type="email" name="email" id="comments-email" class="comments-email input" placeholder="Pon tu email">
+      <input type="text" name="subject" id="comments-subject" class="comments-subject input" placeholder="Para que es tu mensaje?">
+      <textarea  name="text" id="comments-text" class="comments-text input" cols="30" rows="10" placeholder="Escribeme tu comentario"></textarea>
+      <input type="submit"  name="submit" id="comments-submit" class="comments-submit input" value="Im Listening !!!">
     </form>
+    <div class="comments-form-loader none">
+      <img src="./SVG-Loaders-master/svg-loaders/hearts.svg" alt="form loader">
+      <p></p>
+    </div>
   </section> 
   
 </main>
