@@ -14,6 +14,7 @@ import filter from "./modules/filter.js";
 import giveaway from "./modules/giveaway.js";
 import { intersection } from "./modules/intersection.js";
 import { smartVideo } from "./modules/smartVideo.js";
+import formValidation from "./modules/formValidation.js";
 
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
@@ -53,6 +54,7 @@ d.addEventListener("keydown", ev =>{
 })
 d.addEventListener("keyup", ev =>{
   filter(ev, ".search-list", "filter", "search-tag","search-tag--isinvisible");
+  formValidation(ev, "comments")
 })
 
 //
