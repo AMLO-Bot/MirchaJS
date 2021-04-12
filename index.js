@@ -45,6 +45,7 @@ d.addEventListener("DOMContentLoaded", ev => {
   giveaway(".giveaway-list","giveaway-start");
   intersection(".section","hamburger-menu-a--active");
   smartVideo("data-videoSmart");
+  formValidation(ev, "comments")
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 
@@ -54,7 +55,6 @@ d.addEventListener("keydown", ev =>{
 })
 d.addEventListener("keyup", ev =>{
   filter(ev, ".search-list", "filter", "search-tag","search-tag--isinvisible");
-  formValidation(ev, "comments")
 })
 
 //
