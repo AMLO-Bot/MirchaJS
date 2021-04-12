@@ -5,12 +5,16 @@ export default function formValidation(ev, formId){
   const $inputs = d.getElementById(formId).querySelectorAll(`.${formId} > *`);
   const [name, email, subject, text, submit] = $inputs
   $inputs.forEach(input => input.setAttribute("required", true));
-  
-  if(ev.target.matches(`.${formId} > .comments-email`)){
+
+  if(ev.target.matches(`.${formId} > .${email.classList[0]}`)){
     if (email.value.match(emailPattern)){
-      console.log("YAY");
+      email.classList.add("validated");
+      email.classList.remove("rejected");
+      console.log(email.classList)
     }else{
-      console.log("ñYO");
+      email.classList.add("rejected");
+      email.classList.remove("validated");
+      con
     };
   };
     

@@ -334,6 +334,12 @@ img {
     max-width: 200px;
     line-height: 5px;
 }
+.validated {
+    background-color: green;
+}
+.rejected {
+    background-color: red;
+}
 /* Utilities */
 /* Hide Element */
 .is-displayed{
