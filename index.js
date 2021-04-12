@@ -45,7 +45,7 @@ d.addEventListener("DOMContentLoaded", ev => {
   giveaway(".giveaway-list","giveaway-start");
   intersection(".section","hamburger-menu-a--active");
   smartVideo("data-videoSmart");
-  formValidation(ev, "comments")
+  // formValidation(ev, "comments")
 });
 // cumpleanos = new Date(1995,11,17,3,24,0);
 

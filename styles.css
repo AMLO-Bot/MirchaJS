@@ -117,10 +117,10 @@ li {
     height: 30px;
     margin-bottom: 1em;
     padding: 1em;
-    border: 0;
-    border-bottom: solid 1px var(--main-color);
-    border-radius: 10px;
-    box-shadow: inset -1px -2px 11px 0px var(--sec-color);
+    border: 1px;
+    /* border-bottom: solid 1px var(--main-color); */
+    /* border-radius: 10px; */
+    /* box-shadow: inset -1px -2px 11px 0px var(--sec-color); */
 
 }
 form label {
@@ -324,26 +324,63 @@ img {
     max-width: 500px;
     margin: auto;
     font-family: var(--main-font);
+    --rejected-color: rgb(192, 70, 14);
+    --valid-color: rgb(4, 190, 4);
+}
+.comments *{
+    font-family: var(--main-font);
+}
+.comments [required]:valid{
+    border: 2px solid var(--valid-color);
+    
+}
+.comments [required]:invalid{
+    border: 2px solid var(--rejected-color);
 }
 .comments-text {
-    height: 30vh;
-    font-family: var(--main-font);
+    height: 20vh;
+    resize: none;
 }
 .comments-submit {
     width: 50vw !important;
     max-width: 200px;
     line-height: 5px;
+    font-weight: 700;
+    cursor: pointer;
 }
 .validated {
     background-color: green;
 }
-.rejected {
-    background-color: red;
+.input-rejected {
+    margin-bottom: -1em;
+    background-color: var(--rejected-color);
+    background-color: var(--rejected-color);
+    color: whitesmoke;
+    transition: all 800ms ease;
+}
+.input-rejected--active {
+    display: block;
+    animation: show-message 1s 1 normal 0s ease-out both;
+}
+@keyframes show-message {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+    
 }
 /* Utilities */
 /* Hide Element */
 .is-displayed{
     transform: translate(0,0);  
+}
+.none {
+    display: none;
 }
 /* Buttons Styling (Giveaway btn) */
 .button {
