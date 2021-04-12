@@ -77,7 +77,6 @@ h2,
 h3{
     width: 100%;
     text-align: center;
-    line-height: 75px;
     font-size: 2.6rem;
 }
 .section {
@@ -115,7 +114,7 @@ li {
 .input {
     width: 100%;
     height: 30px;
-    margin-bottom: 1em;
+    margin-top: 1em;
     padding: 1em;
     border: 1px;
     /* border-bottom: solid 1px var(--main-color); */
@@ -348,15 +347,17 @@ img {
     font-weight: 700;
     cursor: pointer;
 }
-.validated {
-    background-color: green;
-}
 .input-rejected {
-    margin-bottom: -1em;
-    background-color: var(--rejected-color);
+    height: 3vh;
+    max-height: 30px;
     background-color: var(--rejected-color);
     color: whitesmoke;
+    font-size: 1.2rem;
+    width: 100%;
     transition: all 800ms ease;
+}
+.none {
+    display: none;
 }
 .input-rejected--active {
     display: block;
@@ -373,14 +374,10 @@ img {
     }
 }
     
-}
 /* Utilities */
 /* Hide Element */
 .is-displayed{
     transform: translate(0,0);  
-}
-.none {
-    display: none;
 }
 /* Buttons Styling (Giveaway btn) */
 .button {
