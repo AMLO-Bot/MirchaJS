@@ -3,8 +3,8 @@ const d = document;
 //No es necesario estar pasando el selector del elemento a cada rato, en foundation o bootstrap lo que se hace es dar por entendido el marcado de los componentes y trabajar con eso.
 
 export default function formValidation(){
-  const $inputs = d.getElementById("comments").querySelectorAll(`.comments [required]`);
-
+  const $form = d.getElementById("comments");
+  const $inputs =$form.querySelectorAll(`.comments [required]`);
   $inputs.forEach(input => {
     const $span = d.createElement("span");
     $span.id = input.name;
@@ -23,11 +23,32 @@ export default function formValidation(){
         return regex.exec($input.value)
         ? d.getElementById($input.name).classList.remove("input-rejected--active")
         : d.getElementById($input.name).classList.add("input-rejected--active");
-      }
+      };
 
       if(!pattern){
         console.warn(`El input ${ev.target} no tiene pattern válido`)
-      }
+      };
+
+    };
+  });
+
+  d.addEventListener("submit", ev => {
+    if(ev.target.matches("#comments")){
+      // ev.preventDefault();
+      console.log(ev)
+      const $loader  = d.querySelector(".comments-form-loader"),
+      $statusMsg = d.querySelector(".comments-form-response");
+      //Simil de peticion ajax
+      $loader.classList.remove("none")
+      setTimeout(() => {
+        $loader.classList.add("none");
+        $statusMsg.classList.remove("none");
+        $form.reset();
+      }, 3000);
+      setTimeout(() => {
+        $statusMsg.classList.add("none");
+      }, 4000);
+
     }
   })
 };

@@ -266,6 +266,7 @@ img {
 .dark-mode{
     background-color: var(--sec-color);
     fill: var(--sec-color);
+    fill: whitesmoke;
     color: var(--main-color);
     
 }
@@ -273,6 +274,7 @@ img {
 
 .dark-mode-alt{
     background-color: var(--main-color);
+    
 }
 /* Geolocalization Button */
 #geo-btn{
@@ -362,6 +364,13 @@ img {
 .input-rejected--active {
     display: block;
     animation: show-message 1s 1 normal 0s ease-out both;
+}
+.comments-form-loader{
+    margin-top: 1em;
+    fill: rgb(29, 28, 9);
+}
+.comments-form-response {
+    margin-top: 1em;
 }
 @keyframes show-message {
     0% {

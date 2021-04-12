@@ -64,7 +64,7 @@
         <input class="input" id="height" name="height" type="text" size="4" required placeholder="e.g 768" pattern="[0-9]{1,4}">
       </label>
       <label for="try">
-        <input class="input" type="submit" value="Try Resposiveness">
+        <input class="input" id="resposiveSubmit" name="respSubmit" type="submit" value="Try Resposiveness">
       </label>
     </form>
     <button class="close-win input">Cerrar</button>
@@ -197,20 +197,20 @@
   <section id="seccion14" class="section">
     <h2>Validacion de Formularios<h2>
     
-    <form action="" id="comments" class="comments" autocomplete="on" target="_self">
+    <form action="https://formsubmit.co/aldair.avalos.2000@gmail.com" target="_blank" method="POST" id="comments" class="comments" autocomplete="on" >
       <legend>Envianos tus Comentarios</legend>
       <input type="text"  name="name" id="comments-name" class="comments-name input" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" placeholder="Pon tu Nombre" required data-invalidmsg="Solo coloca un nombre, sin numeros">
       <input type="email" name="email" id="comments-email" class="comments-email input" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})" placeholder="Pon tu email" required data-invalidmsg="No acepta correos con guiones">
       <input type="text" name="subject" id="comments-subject" class="comments-subject input" pattern="^.{1,30}$" placeholder="Para que es tu mensaje?" required data-invalidmsg="Excediste los 30 caracteres">
       <textarea  name="text" id="comments-text" class="comments-text input" cols="30" rows="10" data-pattern="^.{1,255}$" placeholder="Escribeme tu comentario" required data-invalidmsg="Excediste 255 caracteres"></textarea>
-      <input type="submit"  name="submit" id="comments-submit" class="comments-submit input" value="Im Listening !!!">
+      <input type="submit" name="submit" id="comments-submit" class="comments-submit input" value="Im Listening !!!">
+      <div class="comments-form-loader none" >
+        <img src="./SVG-Loaders-master/svg-loaders/three-dots.svg" alt="form loader" data-dark>
+      </div>
+      <div class="comments-form-response none">
+        <p>Succesful !!</p>
+      </div>
     </form>
-    <div class="comments-form-loader none">
-      <img src="./SVG-Loaders-master/svg-loaders/three-dots.svg" alt="form loader">
-    </div>
-    <div class="comments-form-response none">
-      <p></p>
-    </div>
   </section> 
   
 </main>
