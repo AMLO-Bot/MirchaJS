@@ -6,7 +6,7 @@ export function smartVideo() {
   const options = {threshold: 0.7};
   const observer = new IntersectionObserver(videosHandler, options);
   $videos.forEach(video => observer.observe(video));
-  
+
   function videosHandler(entries, observer){
     entries.forEach(entry => {
       if(entry.isIntersecting) entry.target.play();
@@ -18,5 +18,5 @@ export function smartVideo() {
     if (d.hidden) $videos.forEach(video => video.pause());
     if (!d.hidden) $videos.forEach(video => video.play());
   }
-  d.addEventListener("visibilitychange", handleVisibilityChange)
+  d.addEventListener("visibilitychange", handleVisibilityChange);
 }
