@@ -7,15 +7,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
   <style>
-    * {font-family: 'Bree Serif', serif;}
+    @font-face {
+      font-family:"Name-Of-Font";
+      src: url("yourfont.ttf") format("truetype");
+    }
+    /* * {font-family: 'Bree Serif', serif;} */
     ol {margin: 2em 0;}
     ol li:first-child{margin-top: 2em;}
   </style>
   <title>XHR</title>
 </head>
 <body>
-  <h1>AJAX, XML HTTP REQUEST</h1>
+  <h1>Asyn Requests</h1>
+
+  <h2>AJAX, XML HTTP REQUEST</h1>
   <ol id="ajax-list">Data de Petición XHR</ol>
+
+  <h2>API FETCH</h2>
+  <ol id="fetch"></ol>
   <script src="./xhr.js"></script>
 </body>
 </html>
