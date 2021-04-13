@@ -1,7 +1,8 @@
 const d = document;
+//XHR
 (() => {
   const xhr = new XMLHttpRequest();
-  const $list = d.getElementById("ajax-list");
+  const $list = d.getElementById("xhr");
   const $fragment = d.createDocumentFragment();
 
   xhr.addEventListener("readystatechange", (ev) => {
@@ -11,7 +12,7 @@ const d = document;
       const json = JSON.parse(xhr.responseText);
       json.forEach(el => {
         let $li = d.createElement("li");
-        $li.textContent = `User: ${el.userId}   Title: ${el.title}`;
+        $li.textContent = `User: ${el.userId} --- Title: ${el.title}`;
         $fragment.appendChild($li);
       });
       $list.appendChild($fragment);
@@ -24,7 +25,7 @@ const d = document;
   xhr.open("GET", "https://jsonplaceholder.typicode.com/posts");
   xhr.send()
 })();
-
+//FETCH Promises
 (()=>{
   const $fetch = d.getElementById("fetch");
   const $fragment = d.createDocumentFragment();
@@ -35,7 +36,7 @@ const d = document;
     .then(json => {
       json.forEach(el => {
         let $li = d.createElement("li");
-        $li.textContent = `Name: ${el.name}   email: ${el.email}`;
+        $li.textContent = `Name: ${el.name} --- email: ${el.email}`;
         $fragment.appendChild($li);
       })
       $fetch.appendChild($fragment)
@@ -43,11 +44,8 @@ const d = document;
     .catch(err => {
       $fetch.textContent = `${err}: A Bad Thing Happened`;
     })
-    .finally(
-      console.log("I dont care what happened Im going to show anyway")
-    );
 })();
-
+// FETCH Async-Await
 (() => {
   const $async = d.getElementById("async");
   const $fragment = d.createDocumentFragment();
@@ -58,10 +56,9 @@ const d = document;
       let json =  await res.json();
       
       if (!res.ok) throw {status: res.status, statusText: res.statusText};
-      console.log(json)
       json.forEach(el => {
         let $li = d.createElement("li");
-        $li.textContent = `Name: ${el.username}   email: ${el.email}`;
+        $li.textContent = `Name: ${el.username} --- email: ${el.email}`;
         $fragment.appendChild($li);
       })
       $async.appendChild($fragment)
@@ -73,3 +70,23 @@ const d = document;
   };
   getData();
 })();
+//Axios Promises, simplifies .then's, handles status code in the back (error handling), data is already parsed in json or plain text, the promises return a custom object response instead of builtin Response Object
+(() => {
+  const $axios = d.getElementById("axios")
+  const $fragment = d.createDocumentFragment();
+
+  axios.get("https://jsonplaceholder.typicode.com/users")
+    .then(res => {
+      let json = res.data;
+      json.forEach(el => {
+        let $li = d.createElement("li");
+        $li.textContent = `Name: ${el.username} --- email: ${el.email}`;
+        $fragment.appendChild($li);
+      })
+      $axios.appendChild($fragment)
+    })
+    .catch(err => {
+      let msg = err.response.statusText || "Yo, Where is it?";
+      $axios.textContent = `Error ${err.response.status}: ${msg}`
+    })
+})()

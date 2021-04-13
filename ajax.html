@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
 
     @font-face {
@@ -16,29 +18,43 @@
       font-family: "Fancy Matter";
       src: url("./assets/FancyMatterPersonalUse-lg5Ve.otf") format("truetype");
     }
-    :root{--bg-color: #cc652c; --main-color: #fadacd;}
-    * {font-family: 'Broadway', serif; color: var(--main-color);}
-    body{background-color: var(--bg-color);}
-    ul {margin: 2em 0;
-      list-style: none;
+    :root{
+      --bg-color: #cc652c;
+      --main-color: #fadacd;
     }
-    ul li:first-child{margin-top: 2em;}
-    ul li{
-      font-family: "Fancy Matter", sans-serif;
+    * {
+      font-family: 'Broadway', serif; 
+      color: var(--main-color);
+    }
+    body{
+      background-color: var(--bg-color);
+    }
+    ol {
+      margin: 2em 0;
+    }
+    ol li:first-child{
+      margin-top: 2em;
+    }
+    ol li{
+      font-family: "Roboto";
       font-size: 1.2rem;
-      overflow: hidden;
-      white-space: nowrap;
+      list-style-position: outside;
+     
+      
+      /* white-space: nowrap; */
       text-overflow: ellipsis;
     }
-    h1,h2{margin:1em auto; text-align: center; font-size: 3.5rem; letter-spacing: 3px;
-      /* -webkit-text-stroke-width: 1px; */
-      /* -webkit-text-stroke-color: black; */
-    font-weight: 100;}
+    h1,h2{
+      margin:1em auto; 
+      text-align: center; 
+      font-size: 3.5rem; 
+      letter-spacing: 3px;
+      font-weight: 100;
+    }
     h2{
-      text-align: left;
-      -webkit-text-stroke-width: unset;
-      -webkit-text-stroke-color: unset;
+      text-align: left; 
       font-size: 2rem;
+      margin-left: 0.5em;
     }
   </style>
   <title>AJAX</title>
@@ -47,14 +63,17 @@
   <h1>Asyn Requests AJAX, XML HTTP REQUEST</h1>
 
   <h2>XH Request</h2>
-    <ul id="ajax-list"></ul>
+    <ol id="xhr"></ol>
 
   <h2>API FETCH Promises</h2>
-    <ul id="fetch"></ul>
+    <ol id="fetch"></ol>
 
   <h2>API FETCH Async-Await</h2>
-    <ul id="async"></ul>  
+    <ol id="async"></ol>
 
+  <h2>Axios</h2>
+    <ol id="axios"></ol>   
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./xhr.js"></script>
 </body>
 </html>
