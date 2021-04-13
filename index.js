@@ -15,6 +15,7 @@ import giveaway from "./modules/giveaway.js";
 import { intersection } from "./modules/intersection.js";
 import { smartVideo } from "./modules/smartVideo.js";
 import formValidation from "./modules/formValidation.js";
+import { voiceSynth } from "./modules/voiceSynth.js";
 
 const d = document;
 //Cuando se parsee el dom entonces asignamos los eventos pertinentes al docuemnto
@@ -46,7 +47,9 @@ d.addEventListener("DOMContentLoaded", ev => {
   intersection(".section","hamburger-menu-a--active");
   smartVideo("data-videoSmart");
   formValidation();
+  voiceSynth(ev);
 });
+
 // cumpleanos = new Date(1995,11,17,3,24,0);
 
 d.addEventListener("keydown", ev =>{
@@ -57,5 +60,4 @@ d.addEventListener("keyup", ev =>{
   filter(ev, ".search-list", "filter", "search-tag","search-tag--isinvisible");
 })
 
-//
 darkMode(".dark-mode-btn","dark-mode","dark-mode-alt");

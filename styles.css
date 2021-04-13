@@ -398,7 +398,8 @@ img {
 .voice-synth-start{
     display: block;
     margin: auto;
-    width: 10vw;
+    width: 20vw;
+    max-width: 300px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: 700;
