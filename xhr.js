@@ -29,7 +29,7 @@ const d = document;
   const $fetch = d.getElementById("fetch");
   const $fragment = d.createDocumentFragment();
   //Tambien funciona si le pasas un *.json local
-  fetch("https://jsonplaceholder.typicode.com/users")
+  fetch("./users.json")
     //Instead of checkin for status like in XHR the Fetch API give us a boolen "ok" to see if the request is good to go
     .then(res => res.ok? res.json() : Promise.reject()) 
     .then(json => {
