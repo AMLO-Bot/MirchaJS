@@ -382,7 +382,33 @@ img {
         opacity: 1;
     }
 }
-    
+/* Speech Synthethaizer */
+.voice-synth {
+    width: 80vw;
+    max-width: 800px;
+    height: 30vh;
+    max-width: 300px;
+    font-family: var(--main-font);
+    resize: none;
+}
+.voice-list {
+    display: block;
+    margin: 1em auto 0 auto;
+}
+.voice-synth-start{
+    display: block;
+    margin: auto;
+    width: 10vw;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 5px;
+    transition: all 200ms ease;
+}
+.voice-synth-start:hover {
+    box-shadow: inset 4px -5px 68px -17px rgba(0,0,0,0.78);
+}
 /* Utilities */
 /* Hide Element */
 .is-displayed{
