@@ -47,3 +47,29 @@ const d = document;
       console.log("I dont care what happened Im going to show anyway")
     );
 })();
+
+(() => {
+  const $async = d.getElementById("async");
+  const $fragment = d.createDocumentFragment();
+
+  async function getData(){
+    try {
+      let res = await fetch("https://jsonplaceholder.typicode.com/users");
+      let json =  await res.json();
+      
+      if (!res.ok) throw {status: res.status, statusText: res.statusText};
+      console.log(json)
+      json.forEach(el => {
+        let $li = d.createElement("li");
+        $li.textContent = `Name: ${el.username}   email: ${el.email}`;
+        $fragment.appendChild($li);
+      })
+      $async.appendChild($fragment)
+  
+    } catch (err) {
+      let msg = err.statusText || "Something Happened"
+      $async.textContent = `Error ${err.status}: ${msg} \n Better Luck Next Time Cowboy !!!`
+    };
+  };
+  getData();
+})();
