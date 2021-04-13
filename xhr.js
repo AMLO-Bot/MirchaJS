@@ -11,7 +11,7 @@ const d = document;
       const json = JSON.parse(xhr.responseText);
       json.forEach(el => {
         let $li = d.createElement("li");
-        $li.textContent = `User: ${el.userId}  -- Title: ${el.title}`;
+        $li.textContent = `User: ${el.userId}   Title: ${el.title}`;
         $fragment.appendChild($li);
       });
       $list.appendChild($fragment);
@@ -28,13 +28,14 @@ const d = document;
 (()=>{
   const $fetch = d.getElementById("fetch");
   const $fragment = d.createDocumentFragment();
+  //Tambien funciona si le pasas un *.json local
   fetch("https://jsonplaceholder.typicode.com/users")
     //Instead of checkin for status like in XHR the Fetch API give us a boolen "ok" to see if the request is good to go
     .then(res => res.ok? res.json() : Promise.reject()) 
     .then(json => {
       json.forEach(el => {
         let $li = d.createElement("li");
-        $li.textContent = `Name: ${el.name} --- email: ${el.email}`;
+        $li.textContent = `Name: ${el.name}   email: ${el.email}`;
         $fragment.appendChild($li);
       })
       $fetch.appendChild($fragment)

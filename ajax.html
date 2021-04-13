@@ -8,23 +8,49 @@
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
   <style>
     @font-face {
-      font-family:"Name-Of-Font";
-      src: url("yourfont.ttf") format("truetype");
+      font-family:"Broadway";
+      src: url("./assets/BroadwayRegular-7Bpow.ttf") format("truetype");
     }
-    /* * {font-family: 'Bree Serif', serif;} */
-    ol {margin: 2em 0;}
-    ol li:first-child{margin-top: 2em;}
+    @font-face {
+      font-family: "Fancy Matter";
+      src: url("./assets/FancyMatterPersonalUse-lg5Ve.otf") format("truetype");
+    }
+    :root{--bg-color: #cc652c; --main-color: #fadacd;}
+    * {font-family: 'Broadway', serif; color: var(--main-color);}
+    body{background-color: var(--bg-color);}
+    ul {margin: 2em 0;
+      list-style: none;
+    }
+    ul li:first-child{margin-top: 2em;}
+    ul li{
+      font-family: "Fancy Matter", sans-serif;
+      font-size: 1.2rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    h1,h2{margin:1em auto; text-align: center; font-size: 3.5rem; letter-spacing: 3px;
+      /* -webkit-text-stroke-width: 1px; */
+      /* -webkit-text-stroke-color: black; */
+    font-weight: 100;}
+    h2{
+      text-align: left;
+      -webkit-text-stroke-width: unset;
+      -webkit-text-stroke-color: unset;
+      font-size: 2rem;
+    }
   </style>
-  <title>XHR</title>
+  <title>AJAX</title>
 </head>
 <body>
-  <h1>Asyn Requests</h1>
+  <h1>Asyn Requests AJAX, XML HTTP REQUEST</h1>
 
-  <h2>AJAX, XML HTTP REQUEST</h1>
-  <ol id="ajax-list">Data de Petición XHR</ol>
+  <h2>XH Request</h2>
+    <ul id="ajax-list"></ul>
 
   <h2>API FETCH</h2>
-  <ol id="fetch"></ol>
+    <ul id="fetch"></ul>
+
   <script src="./xhr.js"></script>
 </body>
 </html>
