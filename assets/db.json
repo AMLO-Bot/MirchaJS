@@ -1,0 +1,56 @@
+{
+  "knigths": [
+    {
+      "id": 1,
+      "name": "Seiya",
+      "constellation": "Pegasus",
+      "metal": "bronze"
+    },
+    {
+      "id": 2,
+      "name": "Shiryu",
+      "constellation": "Dragon",
+      "metal": "bronze"
+    },
+    {
+      "id": 3,
+      "name": "Hyoga",
+      "constellation": "Swan",
+      "metal": "bronze"
+    },
+    {
+      "id": 4,
+      "name": "Mu",
+      "constellation": "Aries",
+      "metal": "gold"
+    },
+    {
+      "id": 5,
+      "name": "Shaka",
+      "constellation": "Virgo",
+      "metal": "gold"
+    }
+  ],
+  "gods": [
+    {
+      "id": 1,
+      "name": "Hades",
+      "of": "Underworld"
+    },
+    {
+      "id": 2,
+      "name": "Zeus",
+      "of": "Sky"
+    },
+    {
+      "id": 3,
+      "name": "Poseidon",
+      "of": "Oceans"
+    },
+    {
+      "id": 4,
+      "name": "Athena",
+      "of": "Earth"
+    }
+  ]
+}
