@@ -4,7 +4,8 @@ const d = document;
   const xhr = new XMLHttpRequest();
   const $list = d.getElementById("xhr");
   const $fragment = d.createDocumentFragment();
-
+  
+  xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
   xhr.addEventListener("readystatechange", (ev) => {
     if (xhr.readyState !== 4) return;
 
@@ -12,7 +13,7 @@ const d = document;
       const json = JSON.parse(xhr.responseText);
       json.forEach(el => {
         let $li = d.createElement("li");
-        $li.textContent = `User: ${el.userId} --- Title: ${el.title}`;
+        $li.textContent = `User: ${el.name} --- email: ${el.email}`;
         $fragment.appendChild($li);
       });
       $list.appendChild($fragment);
@@ -21,9 +22,8 @@ const d = document;
       console.warn(`${xhr.status}: ${msg}`)
     };
   });
-  
-  xhr.open("GET", "https://jsonplaceholder.typicode.com/posts");
   xhr.send()
+  
 })();
 //FETCH Promises
 (()=>{
@@ -70,9 +70,10 @@ const d = document;
   };
   getData();
 })();
-//Axios Promises, simplifies .then's, handles status code in the back (error handling), data is already parsed in json or plain text, the promises return a custom object response instead of builtin Response Object
+//AXIOS simplifies .then's, handles status code in the back (error handling), data is already parsed in json or plain text, the promises return a custom object response instead of builtin Response Object
+//Axios Promises
 (() => {
-  const $axios = d.getElementById("axios")
+  const $axios = d.getElementById("axios-promise")
   const $fragment = d.createDocumentFragment();
 
   axios.get("https://jsonplaceholder.typicode.com/users")
@@ -89,4 +90,27 @@ const d = document;
       let msg = err.response.statusText || "Yo, Where is it?";
       $axios.textContent = `Error ${err.response.status}: ${msg}`
     })
-})()
+})();
+//Axios Async-Await
+(() => {
+  const $axiosAsync = d.getElementById("axios-async")
+  const $fragment = d.createDocumentFragment();
+  
+  async function getData() {
+    try {
+      const response = await axios.get("https://jsonplaceholder.typicode.com/users")
+      const json = response.data;
+      json.forEach(el => {
+        let $li = d.createElement("li");
+        $li.textContent = `Name: ${el.username} --- email: ${el.email}`;
+        $fragment.appendChild($li);
+      })
+      $axiosAsync.appendChild($fragment) 
+      
+    } catch (error) {
+      let msg = error.response.statusText || "Yo, Where is it?";
+      $axiosAsync.textContent = `Error ${error.response.status}: ${msg}`
+    }
+  }
+  getData();
+})();

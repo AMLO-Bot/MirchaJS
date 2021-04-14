@@ -30,6 +30,7 @@
       background-color: var(--bg-color);
     }
     ol {
+      font-family: "Roboto";
       margin: 2em 0;
     }
     ol li:first-child{
@@ -39,10 +40,9 @@
       font-family: "Roboto";
       font-size: 1.2rem;
       list-style-position: outside;
-     
-      
-      /* white-space: nowrap; */
-      text-overflow: ellipsis;
+      /* overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; */
     }
     h1,h2{
       margin:1em auto; 
@@ -71,8 +71,11 @@
   <h2>API FETCH Async-Await</h2>
     <ol id="async"></ol>
 
-  <h2>Axios</h2>
-    <ol id="axios"></ol>   
+  <h2>Axios Promises</h2>
+    <ol id="axios-promise"></ol> 
+
+  <h2>Axios Async-Await</h2>
+    <ol id="axios-async"></ol>   
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./xhr.js"></script>
 </body>
