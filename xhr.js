@@ -114,3 +114,13 @@ const d = document;
   }
   getData();
 })();
+
+
+//Request to simpson api
+async function getSimpsonsQuote() {
+  let response = await axios.get("https://thesimpsonsquoteapi.glitch.me/quotes")
+  console.log(response)
+  let data = response.data;
+  console.log(data)  
+}
+getSimpsonsQuote();
