@@ -35,6 +35,12 @@
       "name": "Saga",
       "constellation": "Geminis",
       "metal": "gold"
+    },
+    {
+      "id": 7,
+      "name": "Juanito Tostada",
+      "constellation": "Sagitario",
+      "metal": "gold"
     }
   ],
   "gods": [
