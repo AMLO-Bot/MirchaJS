@@ -28,10 +28,11 @@
   <section class="crud">
     <article>
       <h2 class="crud-title">Add Knigth</h2>
-      <form action="" class="crud-form">
+      <form action="" method="POST" class="crud-form" enctype="application/json">
         <input type="text" name="name" placeholder="Name" required>
         <input type="text" name="constellation" placeholder="Constellation" required>
-        <input type="submit" name="submit" value="Send!" required>
+        <input type="text" name="metal" placeholder="Metal" required>
+        <input type="submit" name="submit" value="Send!">
         <input type="hidden" name="action ">
       </form>
     </article>
@@ -43,6 +44,7 @@
           <tr>
             <th>Name</th>
             <th>Constellation</th>
+            <th>Metal</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -55,6 +57,7 @@
   <tr>
     <td class="name"></td>
     <td class="constellation"></td>
+    <td class="metal"></td>
     <td>
       <button class="edit">Editar</button>
       <button class="delete">Eliminar</button>
@@ -64,22 +67,10 @@
 
 <!-- Axios Library CDN -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-  const d = document;
-  const $table = d.querySelector(".crud-table"),
-  $template = d.getElementById("crud-template").content,
-  $form = d.querySelector(".crud-form"),
-  $title = d.querySelector(".crud-title"),
-  $fragment = d.createDocumentFragment();
+<script src="./crud-ajax.js"> 
+  
   
 
-  const getData = async function(){
-    let response = await axios.get("http://127.0.0.1:5000/knigths");
-    let dataJSON = response.data
-    return dataJSON
-  } 
-  const showData = async () => {console.log(await getData())};
-  
 </script>
 </body>
 </html>

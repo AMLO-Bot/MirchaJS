@@ -41,6 +41,37 @@
       "name": "Juanito Tostada",
       "constellation": "Sagitario",
       "metal": "gold"
+    },
+    {
+      "name": "Juanito Tostada",
+      "constellation": "Sagitario",
+      "metal": "gold",
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "asdf": "asdf",
+      "id": 11
+    },
+    {
+      "name": "Aldair",
+      "constellation": "Sagitarius",
+      "metal": "Bismuth",
+      "id": 12
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": 15
     }
   ],
   "gods": [
