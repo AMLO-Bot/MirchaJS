@@ -30,7 +30,6 @@ const getAllKnigths = () => {
     url:"http://127.0.0.1:8000/knigths",
     method: "GET",
     successCb: res => {
-      console.log(res);
       res.forEach(knigth => { 
         $template.querySelector(".name").textContent = knigth.name;
         $template.querySelector(".constellation").textContent = knigth.constellation;
@@ -85,7 +84,7 @@ d.addEventListener("submit", ev => {
       ajax({
         url: `http://127.0.0.1:8000/knigths/${ev.target.id.value}`,
         method: "PUT",
-        successCb: (res) => location.reload(),
+        successCb: location.reload(),
         errorCb: (err) => $form.insertAdjacentHTML("afterend", `<p><b>${err}</b></p>`),
         data: {
           name: ev.target.name.value,
@@ -93,7 +92,7 @@ d.addEventListener("submit", ev => {
           metal: ev.target.metal.value
         }
       });
-      $form.id.value = "";
+      // $form.id.value = "";
     };
   };
 });
@@ -114,7 +113,6 @@ d.addEventListener("click", (ev) => {
 
     if (isDelete) {
       //Delete - DELETE
-      console.log(`http://localhost:8000/knigths/${ev.target.dataset.id}`)
       ajax({
         url: `http://localhost:8000/knigths/${ev.target.dataset.id}`,
         method: "DELETE",
