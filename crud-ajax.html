@@ -10,6 +10,9 @@
       font-family: sans-serif;
       color: #FE5D26;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       background-color: #FAEDCA;
     }
@@ -36,7 +39,7 @@
         <input type="text" name="constellation" placeholder="Constellation" required>
         <input type="text" name="metal" placeholder="Metal" required>
         <input type="submit" name="submit" value="Send!">
-        <input type="hidden" name="action ">
+        <input type="hidden" name="id">
       </form>
     </article>
     <hr>
@@ -62,7 +65,7 @@
     <td class="constellation"></td>
     <td class="metal"></td>
     <td>
-      <button class="edit">Editar</button>
+      <button class="edit"> Editar </button>
       <button class="delete">Eliminar</button>
     </td>
   </tr>
