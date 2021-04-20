@@ -28,6 +28,19 @@ crud-fetch.html
       margin: 1.5rem auto;
       text-align: center;
     }
+    .crud-figure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column wrap;
+      font-weight: bolder;
+    }
+    .crud-figure img{
+      width: 25%;
+      height: auto;
+      border-radius: 15px;
+      margin: 10px 0px;
+    }
   </style>
 </head>
 <body>
@@ -41,6 +54,10 @@ crud-fetch.html
         <input type="submit" name="submit" value="Send!" required>
         <input type="hidden" name="id">
       </form>
+      <figure class="crud-figure">
+        <figcaption>Enter a knigth to enter it in the database</figcaption>
+        <img src="./assets/armors.jpg" alt="">
+      </figure>
     </article>
     <hr>
     <article>
