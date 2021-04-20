@@ -1,16 +1,19 @@
 {
   "knigths": [
     {
-      "name": "Juanito ",
+      "name": "Dohko",
       "constellation": "Libra",
-      "metal": "gold",
-      "id": 8
+      "id": 1
     },
     {
-      "name": "Aldair  Oswaldo",
-      "constellation": "Capricornio",
-      "metal": "Iron Grey HILO",
-      "id": 12
+      "name": "Meliodas",
+      "constellation": "Capricorn",
+      "id": 2
+    },
+    {
+      "name": "Hyoga",
+      "constellation": "Cisne",
+      "id": 3
     }
   ],
   "gods": [

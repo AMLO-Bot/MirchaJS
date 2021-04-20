@@ -32,7 +32,7 @@
         <input type="text" name="name" placeholder="Name" required>
         <input type="text" name="constellation" placeholder="Constellation" required>
         <input type="submit" name="submit" value="Send!" required>
-        <input type="hidden" name="action ">
+        <input type="hidden" name="id">
       </form>
     </article>
     <hr>
@@ -64,21 +64,7 @@
 
 <!-- Axios Library CDN -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-  const d = document;
-  const $table = d.querySelector(".crud-table"),
-  $template = d.getElementById("crud-template").content,
-  $form = d.querySelector(".crud-form"),
-  $title = d.querySelector(".crud-title"),
-  $fragment = d.createDocumentFragment();
-  
-
-  const getData = async function(){
-    let response = await axios.get("http://127.0.0.1:5000/knigths");
-    let dataJSON = response.data
-    return dataJSON
-  } 
-  const showData = async () => {console.log(await getData())};
+<script src="./crud-fetch.js">
   
 </script>
 </body>
