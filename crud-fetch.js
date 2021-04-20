@@ -6,75 +6,94 @@ const d = document;
   $fragment = d.createDocumentFragment();
 
 const getKnigths = async () => {
-  const response = await fetch("http://127.0.0.1:8000/knigths");
-  const json = await response.json();
-  json.forEach(knigth => {
-    $template.querySelector(".name").textContent = knigth.name;
-    $template.querySelector(".constellation").textContent = knigth.constellation;
-    
-    // Add data attributes to edit and delete button to access retrieve data from knigth easily
-    $template.querySelector(".edit").dataset.id = knigth.id;
-    $template.querySelector(".edit").dataset.name = knigth.name;
-    $template.querySelector(".edit").dataset.constellation = knigth.constellation;
-    $template.querySelector(".delete").dataset.id = knigth.id;
+  try {
+    const response = await fetch("http://127.0.0.1:8000/knigths");
+    const json = await response.json();
+    if (!response.ok) throw {status: response.status, statusText: response.statusText}
 
-    let $clone = d.importNode($template, true);
-    $fragment.appendChild($clone);
-  });
-  $table.querySelector("tbody").appendChild($fragment);
+    json.forEach(knigth => {
+      $template.querySelector(".name").textContent = knigth.name;
+      $template.querySelector(".constellation").textContent = knigth.constellation;
+      // Add data attributes to edit and delete button to access retrieve data from knigth easily
+      $template.querySelector(".edit").dataset.id = knigth.id;
+      $template.querySelector(".edit").dataset.name = knigth.name;
+      $template.querySelector(".edit").dataset.constellation = knigth.constellation;
+      $template.querySelector(".delete").dataset.id = knigth.id;
+  
+      let $clone = d.importNode($template, true);
+      $fragment.appendChild($clone);
+    });
+    $table.querySelector("tbody").appendChild($fragment);
+
+  } catch (error) {
+    console.warn(error.statusText);
+    let msg = error.statusText || "An unexpected error ocurred";
+    $table.insertAdjacentHTML("afterend", `<p><b>${error.status}:${msg}</b></p>`)
+  }
 }
 
 const deleteKnigth = async (id) => {
-  const response = await fetch(`http://127.0.0.1:8000/knigths/${id}`,
-    { method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/knigths/${id}`,
+      { method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }
-    }
-  );
-  location.reload()
-};
+    );
+    if (!response.ok) throw {status: response.status, statusText: response.statusText}
+    location.reload()
+    
+  } catch (error) {
+    console.warn(error.statusText);
+    let msg = error.statusText || "An unexpected error ocurred";
+    $table.insertAdjacentHTML("afterend", `<p><b>${error.status}:${msg}</b></p>`)
+  }
+}
+
 
 const createKnigth = async () => {
-  const response = await fetch(`http://127.0.0.1:8000/knigths`,
-  { 
-    method: 'POST',
-    body:JSON.stringify({
-      name: $form.name.value,
-      constellation: $form.constellation.value
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  }
-  );
-  // Validation and eror handling
-  if (response.ok) {
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/knigths`,
+    { 
+      method: 'POST',
+      body:JSON.stringify({
+        name: $form.name.value,
+        constellation: $form.constellation.value
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }
+    );
+    if (!response.ok) throw {status: response.status, statusText: response.statusText}
     location.reload()
-  } else {
-    let msg = response.statusText || "An unexpected error ocurred";
-    console.warn(msg);
-    $table.insertAdjacentHTML("afterend", `<p><b>${msg}</b></p>`)
+    
+  } catch (error) {
+    console.warn(error.statusText);
+    let msg = error.statusText || "An unexpected error ocurred";
+    $table.insertAdjacentHTML("afterend", `<p><b>${error.status}:${msg}</b></p>`)
   }
 };
 
 const updateKnigth = async () => {
-  const response = await fetch(`http://127.0.0.1:8000/knigths/${$form.id.value}`,
-  { 
-    method: 'PUT',
-    body:JSON.stringify({
-      name: $form.name.value,
-      constellation: $form.constellation.value
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  }
-  );
-  // Validation and eror handling
-  if (response.ok) {
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/knigths/${$form.id.value}`,
+    { 
+      method: 'PUT',
+      body:JSON.stringify({
+        name: $form.name.value,
+        constellation: $form.constellation.value
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }
+    );
+    if (!response.ok) throw {status: response.status, statusText: response.statusText}
     location.reload()
-  } else {
+    
+  } catch (error) {
     let msg = response.statusText || "An unexpected error ocurred";
     console.warn(msg);
     $table.insertAdjacentHTML("afterend", `<p><b>${msg}</b></p>`)

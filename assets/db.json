@@ -1,14 +1,14 @@
 {
   "knigths": [
     {
-      "name": "Dohko",
-      "constellation": "Libra",
-      "id": 1
-    },
-    {
       "name": "Hyoga",
       "constellation": "Cisne",
       "id": 3
+    },
+    {
+      "name": "Shaka",
+      "constellation": "fenix",
+      "id": 4
     }
   ],
   "gods": [
