@@ -1,14 +1,14 @@
 {
   "knigths": [
     {
-      "name": "Hyoga",
-      "constellation": "Cisne",
-      "id": 3
+      "name": "Eiolos",
+      "constellation": "Sagitario",
+      "id": 4
     },
     {
-      "name": "Shaka",
-      "constellation": "fenix",
-      "id": 4
+      "name": "Aldebaran",
+      "constellation": "Tauro",
+      "id": 5
     }
   ],
   "gods": [

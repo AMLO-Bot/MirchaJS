@@ -10,8 +10,14 @@
       font-family: sans-serif;
       color: #FE5D26;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       background-color: #FAEDCA;
+    }
+    form input{
+      color: rgb(59, 54, 54);
     }
     form > * {
       display: block;
@@ -20,6 +26,19 @@
     h1, h2, table {
       margin: 1.5rem auto;
       text-align: center;
+    }
+    .crud-figure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column wrap;
+      font-weight: bolder;
+    }
+    .crud-figure img{
+      width: 25%;
+      height: auto;
+      border-radius: 15px;
+      margin: 10px 0px;
     }
   </style>
 </head>
@@ -34,6 +53,10 @@
         <input type="submit" name="submit" value="Send!" required>
         <input type="hidden" name="id">
       </form>
+      <figure class="crud-figure">
+        <figcaption>Enter a knigth to enter it in the database</figcaption>
+        <img src="./assets/armors.jpg" alt="">
+      </figure>
     </article>
     <hr>
     <article>
@@ -64,8 +87,131 @@
 
 <!-- Axios Library CDN -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="./crud-fetch.js">
+<script>
+const d = document;
+  const $table = d.querySelector(".crud-table"),
+  $template = d.getElementById("crud-template").content,
+  $form = d.querySelector(".crud-form"),
+  $title = d.querySelector(".crud-title"),
+  $fragment = d.createDocumentFragment();
+
+const getKnigths = async () => {
+  try {
+    const response = await axios("http://127.0.0.1:8000/knigths");
+    const json = response.data;
+
+    json.forEach(knigth => {
+      $template.querySelector(".name").textContent = knigth.name;
+      $template.querySelector(".constellation").textContent = knigth.constellation;
+      // Add data attributes to edit and delete button to access retrieve data from knigth easily
+      $template.querySelector(".edit").dataset.id = knigth.id;
+      $template.querySelector(".edit").dataset.name = knigth.name;
+      $template.querySelector(".edit").dataset.constellation = knigth.constellation;
+      $template.querySelector(".delete").dataset.id = knigth.id;
   
+      let $clone = d.importNode($template, true);
+      $fragment.appendChild($clone);
+    });
+    $table.querySelector("tbody").appendChild($fragment);
+
+  } catch (error) {
+    console.warn(error.response.statusText)
+    let msg = error.response.statusText || "An unexpected error ocurred";
+    $table.insertAdjacentHTML("afterend", `<p><b>${error.response.status}:${msg}</b></p>`)
+  }
+}
+
+const deleteKnigth = async (id) => {
+  try {
+    let config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    const response = await axios.delete(`http://127.0.0.1:8000/knigths/${id}`, config );
+    location.reload()
+  
+  } catch (error) {
+    console.warn(error.statusText);
+    let msg = error.statusText || "An unexpected error ocurred";
+    $table.insertAdjacentHTML("afterend", `<p><b>${error.status}:${msg}</b></p>`)
+  }
+}
+
+
+const createKnigth = async () => {
+  try {
+    let data = {
+      name: $form.name.value,
+      constellation: $form.constellation.value
+    }
+    let config = { 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }
+    const response = await axios.post(`http://127.0.0.1:8000/knigths`, data, config);
+    location.reload()
+    
+  } catch (error) {
+    console.warn(error.statusText);
+    let msg = error.statusText || "An unexpected error ocurred";
+    $table.insertAdjacentHTML("afterend", `<p><b>${error.status}:${msg}</b></p>`)
+  }
+};
+
+const updateKnigth = async () => {
+  try {
+    let data = {
+      name: $form.name.value,
+      constellation: $form.constellation.value
+    }
+    let config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    const response = await axios.put(`http://127.0.0.1:8000/knigths/${$form.id.value}`, data, config);
+    location.reload()
+    
+  } catch (error) {
+    let msg = response.statusText || "An unexpected error ocurred";
+    console.warn(msg);
+    $table.insertAdjacentHTML("afterend", `<p><b>${msg}</b></p>`)
+  }
+};
+
+d.addEventListener("DOMContentLoaded", getKnigths);
+d.addEventListener('submit', ev => {
+  if (ev.target === $form) {
+    ev.preventDefault()
+    console.log($form.id.value)
+    if (!$form.id.value) {
+      // POST
+      createKnigth();
+      
+    } else {
+      // PUT
+      updateKnigth();
+    }
+  }
+})
+
+d.addEventListener('click', (ev) => {
+  if (ev.target.matches('.edit')) {
+    $title.textContent = "Edit Knigth"
+    $form.name.value = ev.target.dataset.name
+    $form.constellation.value = ev.target.dataset.constellation
+    $form.id.value = ev.target.dataset.id //set input hidden name id of form to check later if PUT or POST when submit form
+  }
+  if (ev.target.matches('.delete')) {
+    let id = ev.target.dataset.id
+    let isConfirmed = confirm(`Estas seguro de eliminar el caballero ${ev.target.dataset.id} ?`);
+    if (isConfirmed) {
+      deleteKnigth(id)
+    };  
+  };
+})
 </script>
 </body>
 </html>
